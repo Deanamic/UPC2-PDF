@@ -15,12 +15,14 @@ struct Node {
 	map<char, int> children;
 
 	// not needed for construction, add if needed
+	char c;
 	int parent;
 	vector<int> suffixof;
 };
 
 int nodeid;
 Node tree[maxN]; // 0: -1 root, 1: empty string
+int pos2node[maxN]; // not needed for construction
 
 int add(int parent, char c) {
 	if(has(tree[parent].children, c)) {
@@ -30,6 +32,7 @@ int add(int parent, char c) {
 	tree[newid].suffix = -1;
 	tree[newid].len = tree[parent].len + 2;
 	tree[newid].parent = parent;
+	tree[newid].c = c;
 	tree[parent].children[c] = newid;
 	return newid;
 }
@@ -41,7 +44,7 @@ void build(string& s) {
 	tree[1].parent = -1;
 	tree[0].suffixof.push_back(1);
 	int cur = 0;
-	FOR(i, 0, int(s.size())) {
+	FOR(i, 0, s.size()) {
 		int newn = -1;
 		while(1) {
 			int curlen = tree[cur].len;
@@ -51,6 +54,7 @@ void build(string& s) {
 			}
 			cur = tree[cur].suffix;
 		}
+		pos2node[i] = newn;
 		if(tree[newn].suffix != -1) {
 			cur = newn;
 			continue;
@@ -58,7 +62,6 @@ void build(string& s) {
 		if(cur == 0) {
 			tree[newn].suffix = 1;
 		} else {
-			cur = tree[cur].suffix;
 			do {
 				cur = tree[cur].suffix;
 			} while(i-1-tree[cur].len < 0
