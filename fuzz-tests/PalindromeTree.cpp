@@ -24,21 +24,42 @@ void find_palins(int node, vector<string>& ret) {
 }
 
 int main(int argc, char**argv) {
+	int param = 0;
 	if(argc > 1) {
-		srand(atoi(argv[1]));
+		param = atoi(argv[1]);
 	}
 
-	int strlen = rand() % MAXLEN;
 	string s;
-	FOR(i, 0, strlen) {
-		if(rand() % 100 == 1) {
-			string s2(s);
-			reverse(s2.begin(), s2.end());
-			s += s2;
-			i += s2.size();
-		} else {
-			s.push_back('a' + (rand() % 26));
+	switch(param) {
+	case 0:
+		s = "";
+		break;
+	case 1:
+		s = "a";
+		break;
+	case 2:
+		s = "aba";
+		break;
+	case 3:
+		s = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+		break;
+	case 4:
+		s = "aaabaacaabaaaaaaaaacaaaaadaadaaaacaaaacaaacadddaaa";
+		break;
+	default:
+		srand(param);
+		int strlen = rand() % MAXLEN;
+		FOR(i, 0, strlen) {
+			if(rand() % 100 == 1) {
+				string s2(s);
+				reverse(s2.begin(), s2.end());
+				s += s2;
+				i += s2.size();
+			} else {
+				s.push_back('a' + (rand() % 26));
+			}
 		}
+		break;
 	}
 	build(s);
 	FOR(i, 0, s.size()) {
