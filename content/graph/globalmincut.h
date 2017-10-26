@@ -1,17 +1,26 @@
-Explanation: Given an adjacency matrix, it returns the global mincut and the vertices of one of the cuts.
-Complexity: O(V^3)
-If you dont need the cut you can eliminate every thing with this coment "//**********"
+/**
+ * Author: Eric
+ * License: CC0
+ * Description: Given an adjacency matrix returns the global mincut and the vertices of one of the cuts.
+ * Time: O(V^3)
+ * Status: ???
+ * Usage:
+ */
+#pragma once
 
-Explanation of algorithm:
-  -getting the mincut value: it does n-1 iterations. In each iteration it starts by a vertex (random) as set A.
-  then it iterates until only two vertices are left by adding to set A the most tightly connected vertex to A (vertex not in A).
-  it insert this vertex to A. When only two vertices are left, the mincut between those two is the weight W of the edges between
-  the last vertex and A. mincut = min(mincut, W) 
-  We then merge the two last vertices and start again.
-  
-  -getting the cut: basically when we merge two nodes we merge them with mfset. When we obtain a new best mincut value, a cut 
-  is represented buy the nodes in the same component as the last node;
 
+/*
+ * If you dont need the cut you can eliminate every thing with this coment "// **********"
+ *Explanation of algorithm:
+ *  -getting the mincut value: it does n-1 iterations. In each iteration it starts by a vertex (random) as set A.
+ *  then it iterates until only two vertices are left by adding to set A the most tightly connected vertex to A (vertex not in A).
+ *  it insert this vertex to A. When only two vertices are left, the mincut between those two is the weight W of the edges between
+ *  the last vertex and A. mincut = min(mincut, W)
+ *  We then merge the two last vertices and start again.
+ *
+ *  -getting the cut: basically when we merge two nodes we merge them with mfset. When we obtain a new best mincut value, a cut
+ *  is represented buy the nodes in the same component as the last node;
+ */
 
 // Maximum number of vertices in the graph
 #define NN 256
@@ -22,15 +31,15 @@ int v[NN], w[NN];
 bool a[NN];
 
 
- 
-int pare[NN]; "//**********"
-int par (int b){ "//**********"
+
+int pare[NN]; // **********
+int par (int b){ // **********
     if (pare[b] == b) return b;
     pare[b] = par(pare[b]);
     return pare[b];
 }
 
-inline void merge (int b, int c){ //**********
+inline void merge (int b, int c){ // **********
     pare[par(b)] = par(c);
 }
 
@@ -39,11 +48,11 @@ pair < int, vi > minCut(vvi& g, int n) {
   // init the remaining vertex set
   for (int i = 0; i < n; i++){
     v[i] = i;
-    pare[i] = i; "//**********"
+    pare[i] = i; // **********
   }
   // run Stoer-Wagner
   int best = MAXW * n * n;
-  vi cut; //**********
+  vi cut; // **********
   while (n > 1) {
     // initialize the set A and vertex weights
     a[v[0]] = true;
@@ -65,12 +74,12 @@ pair < int, vi > minCut(vvi& g, int n) {
         // remember the cut weight
         if (best > w[zj]){
             best = w[zj];
-            cut.clear(); //********
-            for (int ko = 0; ko < n1; ko++) if (par(ko) == par(v[zj])) cut.push_back(ko); //********
+            cut.clear(); // ********
+            for (int ko = 0; ko < n1; ko++) if (par(ko) == par(v[zj])) cut.push_back(ko); // ********
         }
-        
+
         // merge prev and v[zj]
-        merge(prev, v[zj]); //*************
+        merge(prev, v[zj]); // *************
         for (int j = 0; j < n; j++)
           g[v[j]][prev] = g[prev][v[j]] += g[v[zj]][v[j]];
         v[zj] = v[--n];
