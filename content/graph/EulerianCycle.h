@@ -1,44 +1,35 @@
 /**
  * Author: Dean
  * License: CC0
- * Description: returns de eulerian cycle/tour starting at u, cycle is in reverse order. If its a tour it must start at a vertex with odd degree
+ * Description: returns de eulerian cycle/tour starting at u, cycle is in reverse order. If its a tour it must start at a vertex with odd degree. It is common to add edges between odd vertex to find a pseudo euler tour.
  * Time: O(E)
- * Status: ???
- * Usage:
+ * Status: Undirected version is tested
+ * Usage: Call find cycle with a vertex where a eulerian tour/cycle is possible, when adding edges make sure that two vertex have the same edge iff it is undirected.
  */
 #pragma once
 
-//undirected graph
+typedef vector<int> vi;
 struct edge{
 	int u, v;
 	bool used;
 };
 
-vector<edge> E;
-vector<vector<int> > adj; //adj stores the index in E
-vector<int> nxt;
-vector<int> cycle;
-int p;
-
-void find_cycle(int u){
+void Eulerdfs(int u, vi &nxt, vi &Euler, vector<edge> &E, const vector<vi> &adj) {
 	while(nxt[u] < adj[u].size()){
 		int go = adj[u][nxt[u]++];
 		if(!E[go].used){
 			E[go].used = 1;
 			int to = (E[go].u ^ E[go].v ^ u);
-			find_cycle(to);
+			Eulerdfs(to, nxt, Euler, E, adj);
 		}
 	}
-	cycle.push_back(u);
+	Euler.push_back(u);
 }
 
-//directed graph
-vector<int> next; //stores last visited vertex index
-vector<vector<int>> adj;
-vector<int> cycle;
-
-void find_cycle(int u){
-	while(next[u] < adj[u].size())
-		find_cycle(adj[u][next[u]++]);
-	cycle.push_back(u);
+vi Eulerian(int u, vector<edge> &E, const vector<vi> &adj) {
+	vi nxt (adj.size(),0);
+	vi Euler;
+	Eulerdfs(u, nxt, Euler, E, adj);
+	reverse(Euler.begin(), Euler.end());
+	return Euler;
 }
