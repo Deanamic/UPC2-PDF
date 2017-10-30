@@ -13,7 +13,6 @@ Credits to KTH Royal institute of institute and Simon Lindholm for the base temp
   - [ ] Fenwick (with range update)
  
 - Graph
-  - [ ] Dinics + Mincut
   - [ ] Matching
   - [ ] Variations of maxflow
 - Strings
