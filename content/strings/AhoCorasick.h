@@ -23,7 +23,6 @@ struct Trie{
     queue<int> q;
     for(q.push(0); q.size(); q.pop()) {
       int pos = q.front();
-      int val = getval(V[pos].c);
       if(!pos) V[pos].SuffixLink = -1;
       else {
         int val = getval(V[pos].c);
