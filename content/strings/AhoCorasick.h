@@ -1,12 +1,11 @@
 /**
  * Author: Dean
  * License: CC0
- * Description: AhoCorasick
- * Time: ???
- * Status: ???
- * Usage: ???
+ * Description: Builds an Ahocorasick Trie, with suffix links
+ * Time: O(n + m + z)
+ * Status: Trie Tested, suffixlink tested, finding matches lightly tested
+ * Usage: This is an offline Algorithm, Pass the vector of patterns to Trie.init(), find function return the words matched in order of matching
  */
-#pragma once
 
 const int MaxM = 200005;
 
@@ -82,17 +81,3 @@ struct Trie{
         return ans;
     }
 };
-
-
-void example() {
-    int n;
-    cin >> n;
-    vector<string> v(n);
-    for(int i = 0; i < n; ++i) cin >> v[i];
-    Trie T;
-    T.init(v);
-    string s1;
-    cin >> s1;
-    auto ans = T.find(s1);
-    for(auto &i : ans) cout << i << endl;
-}
