@@ -1,5 +1,12 @@
-#include <bits/stdc++.h>
-using namespace std;
+/**
+ * Author: Dean
+ * License: CC0
+ * Description: AhoCorasick
+ * Time: ???
+ * Status: ???
+ * Usage: ???
+ */
+#pragma once
 
 const int MaxM = 200005;
 
@@ -77,7 +84,7 @@ struct Trie{
 };
 
 
-int main() {
+void example() {
     int n;
     cin >> n;
     vector<string> v(n);
