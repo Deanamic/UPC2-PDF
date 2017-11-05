@@ -1,3 +1,10 @@
+/**
+ * Author: ???
+ * License: ???
+  * Description: NTT
+ * Time: O(N \log N)
+ * Status: ???
+ */
 LL fpw(LL a, LL b, LL p){
     LL r = 1; while(b){if(b&1) r=r*a%p; a=a*a%p; b/=2;} return r;
 }
