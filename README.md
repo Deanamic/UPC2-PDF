@@ -1,9 +1,36 @@
 # UPC2 PDF
 
 
-Credits to KTH Royal institute of institute and Simon Lindholm for the base template of the Latex.
+## Current Documents
 
+- Data-Structures
+  - Linear Structures - tested
+  - Fenwick Tree 2D - unknown
 
+- Numerical
+  - Simplex - tested
+  - Gauss - tested
+  - FFT - unknown
+
+- Number Theory
+  - Modular operations - Tested
+  - integer FFT - works, unsure about precision
+  - double fft - works
+  - primality tests - unknown
+  - Chinese Remainder - tested
+
+- Graph
+  - global mincut - tested
+  - Eulerian cycle - tested for undirected, should work for directed
+  - Maxflow - tested
+  - SCC - tested on 2sat
+
+- Geometry
+  Most functions are tested
+  - Spherical Distance - somewhat tested
+  - Circle interection - somewhat tested
+  
+  
 ## Things to add
 
 - Data - Structures
@@ -20,3 +47,6 @@ Credits to KTH Royal institute of institute and Simon Lindholm for the base temp
   - [ ] Aho Corasick
   - [ ] Suffix Tree
   - [ ] Suffix Array
+
+
+Credits to KTH Royal institute of institute and Simon Lindholm for the base template of the Latex.
