@@ -14,11 +14,17 @@
 
 - Number Theory
   - Modular operations - Tested
-  - integer FFT - works, unsure about precision
+  - integer FFT - Tested
   - double fft - works
   - primality tests - unknown
   - Chinese Remainder - tested
 
+- Strings
+  - Hashing - tested
+  - Palindromic tree - tested
+  - Suffix array - tested
+  - Aho corsaick - tested
+  
 - Graph
   - global mincut - tested
   - Eulerian cycle - tested for undirected, should work for directed
