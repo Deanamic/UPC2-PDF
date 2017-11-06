@@ -37,22 +37,71 @@
   - Circle interection - somewhat tested
   
   
-## Things to add
+## Things to do
 
-- Data - Structures
-  - [ ] Segtree
-  - [ ] Lazy Segtree
-  - [ ] Persistent Segtree
-  - [ ] Fenwick (with range update)
- 
-- Graph
-  - [ ] Matching
-  - [ ] Variations of maxflow
+- Doc
+  - Delete bashrc
+  - add defines to template
+
+- Mathematics part
+
+- Data-Structures
+  - ordered set @dean
+  - upc treap @eric
+  - upc fenwick (+ range updates) @dean
+  - RMQ @Dean O(nlog), O(1) @Dean
+  - lazy segment tree?
+  - segment tree?
+  
+- Numerical
+  - gauss mod p @dean
+  - determinant @dean
+  - change fft @eric
+  - polyroot + test @copy
+  - polynomial interpolation @copy
+  - numerical integration @copy
+  - gauss bitset @dean
+  - matrix inverse @copy
+  - remove ntt
+
+- combinatorial part
+  - ranking permutations?
+  
+- Parsing
+  - CYK
+  
+- Number Theory
+
 - Strings
-  - [ ] Z-algorithm
-  - [ ] Aho Corasick
-  - [ ] Suffix Tree
-  - [ ] Suffix Array
+  - min rotation
+  - manacher depending on space
+  - Z algo
+  - KMP?
+  
+- Graph
+  - maxflow mincap @eric
+  - maxflow mincost @eric
+  - bipartite matching + minimal vertex cover
+  - biconected components @michael
+  - articulation points and bridges @michael
+  - weighted bipartite matching
+  - Tree power + LCA @dean
+  - Read/understand use of linkcut tree and compress tree
+  - dominator tree?
+  - mst directed
+   
+- Geometry
+  - test circle intersection
+  
+- Various
+  - intreval container + cover
+  - dp tricks
+  - tsp?
+  
+- Java
 
+- bit operations
+
+- misc problem explanations
 
 Credits to KTH Royal institute of institute and Simon Lindholm for the base template of the Latex.
