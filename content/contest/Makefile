@@ -1,1 +1,1 @@
-CXXFLAGS += -g -Wall -Wextra -Wshadow -std=c++11
+CXXFLAGS += -g -Wall -Wextra -Wshadow -std=c++14
