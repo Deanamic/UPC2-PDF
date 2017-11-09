@@ -107,4 +107,7 @@
 
 - misc problem explanations
 
+- Math: add integrals and derivatives
+lucas theorem
+
 Credits to KTH Royal institute of institute and Simon Lindholm for the base template of the Latex.
