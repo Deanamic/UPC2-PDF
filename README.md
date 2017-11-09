@@ -63,6 +63,7 @@
   - gauss bitset @dean
   - matrix inverse @copy
   - remove ntt
+  - lucas theorem @michael
 
 - combinatorial part
   - ranking permutations?
