@@ -55,31 +55,18 @@
 ## Things to do
 
 - Doc
-  - Delete bashrc - done
   - add defines to template
 
-- Mathematics part - done
-
 - Data-Structures
-  - ordered set @dean
   - upc treap @eric
   - upc fenwick (+ range updates) @dean
-  - RMQ @Dean O(nlog), O(1) @Dean
 
 - Numerical
   - gauss mod p @dean
-  - determinant @dean
   - change fft @eric
-  - polyroot + test @copy - done
-  - polynomial interpolation @copy - done
-  - numerical integration @copy -done
   - gauss bitset @dean
-  - matrix inverse @copy - done
   - remove ntt
   - lucas theorem @michael
-
-- combinatorial part - done
-  - ranking permutations? - done
 
 - Parsing
   - CYK
@@ -99,7 +86,6 @@
   - biconected components @michael
   - articulation points and bridges @michael
   - weighted bipartite matching
-  - Tree power + LCA @dean
   - Read/understand use of linkcut tree and compress tree
   - dominator tree?
   - mst directed
