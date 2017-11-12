@@ -30,7 +30,7 @@
   - derangements - untested
   - intperm - untested
   - binomial - untested
-  - binomial mod prime - untested
+  - binomial mod prime (lucas theorem) - untested
   - rolling binomial - untested
   - multinomial - untested
 
@@ -45,11 +45,16 @@
   - Eulerian cycle - tested for undirected, should work for directed
   - Maxflow - tested
   - SCC - tested on 2sat
+  - biconected components & bridges & articulation points - untested
 
 - Geometry
   Most functions are tested
   - Spherical Distance - somewhat tested
   - Circle interection - somewhat tested
+
+- Various
+  - intreval container + cover - untested
+  - dp tricks - untested
 
 
 ## Things to do
@@ -66,7 +71,7 @@
   - change fft @eric
   - gauss bitset @dean
   - remove ntt
-  - lucas theorem @michael
+  - lucas theorem @michael - done
 
 - Parsing
   - CYK
@@ -83,8 +88,6 @@
   - maxflow mincap @eric
   - maxflow mincost @eric
   - bipartite matching + minimal vertex cover
-  - biconected components @michael
-  - articulation points and bridges @michael
   - weighted bipartite matching
   - Read/understand use of linkcut tree and compress tree
   - dominator tree?
@@ -94,19 +97,18 @@
   - test circle intersection
 
 - Various
-  - intreval container + cover
-  - dp tricks
+  - intreval container + cover - done
+  - dp tricks - done
   - tsp?
 
 - Java
 
-- bit operations
+- bit operations - done
 
 - halfplane intesection
 
 - misc problem explanations
 
 - Math: add integrals and derivatives
-lucas theorem
 
 Credits to KTH Royal institute of institute and Simon Lindholm for the base template of the Latex.
