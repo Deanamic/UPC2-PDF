@@ -68,7 +68,20 @@ $ef = ac + bd$, and $A = \sqrt{(p-a)(p-b)(p-c)(p-d)}$.
 x = r\sin\theta\cos\phi & r = \sqrt{x^2+y^2+z^2}\\
 y = r\sin\theta\sin\phi & \theta = \textrm{acos}(z/\sqrt{x^2+y^2+z^2})\\
 z = r\cos\theta & \phi = \textrm{atan2}(y,x)
-\end{array}\]
+  \end{array}\]
+\subsection{Pick's theorem}
+$A = i + b/2 - 1$
+\subsection{Volumes}
+\begin{tabular}{rcccccc}
+ & Sphere& Cube &  Tetrahedron \\
+  Area &     $4 \pi r^2$     &  $6a^2$ &     $a^2\sqrt{3}$ \\
+Volume &  $\frac{4}{3}\pi r^3$  & $a^3$ & $\frac{1}{12}a^3\sqrt{2}$
+\end{tabular}
+\begin{tabular}{rccc}
+ & Octahedron & Dodecahedron & Icosahedron \\
+  Area & $2\sqrt{3}a^2$ & $3a^2\sqrt{25+10\sqrt5}$ &     $5\sqrt3a^2$ \\
+  Volume & $\frac{1}{3}\sqrt{2}a^3$ & $\frac{1}{4}(15+7\sqrt5)a^3$ & $\frac{5}{12}(3+\sqrt5)a^3$
+\end{tabular}
 
 \section{Derivatives/Integrals}
 \begin{align*}
@@ -90,12 +103,19 @@ Integration by parts:
 	1^4 + 2^4 + 3^4 + \dots + n^4 &= \frac{n(n+1)(2n+1)(3n^2 + 3n - 1)}{30} \\
 \end{align*}
 
-\section{Series} 
+\section{Series}
 $$e^x = 1+x+\frac{x^2}{2!}+\frac{x^3}{3!}+\dots,\,(-\infty<x<\infty)$$
 $$\ln(1+x) = x-\frac{x^2}{2}+\frac{x^3}{3}-\frac{x^4}{4}+\dots,\,(-1<x\leq1)$$
 $$\sqrt{1+x} = 1+\frac{x}{2}-\frac{x^2}{8}+\frac{2x^3}{32}-\frac{5x^4}{128}+\dots,\,(-1\leq x\leq1)$$
 $$\sin x = x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}+\dots,\,(-\infty<x<\infty)$$
 $$\cos x = 1-\frac{x^2}{2!}+\frac{x^4}{4!}-\frac{x^6}{6!}+\dots,\,(-\infty<x<\infty)$$
+\subsection{Faulhaber's formulae}
+$1 + 2 + 3 + \cdots + n = {n(n+1) \over 2} = {n^2 + n \over 2}$\\
+$1^2 + 2^2 + 3^2 + \cdots + n^2 = {n(n+1)(2n+1) \over 6} = {2n^3 + 3n^2 + n \over 6}$\\
+$1^3 + 2^3 + 3^3 + \cdots + n^3 = \left({n^2 + n \over 2}\right)^2 = {n^4 + 2n^3 + n^2 \over 4}$\\
+$1^4 + 2^4 + 3^4 + \cdots + n^4 = {6n^5 + 15n^4 + 10n^3 - n \over 30}$\\
+$1^5 + 2^5 + 3^5 + \cdots + n^5 = {2n^6 + 6n^5 + 5n^4 - n^2 \over 12}$\\
+$1^6 + 2^6 + 3^6 + \cdots + n^6 = {6n^7 + 21n^6 + 21n^5 -7n^3 + n \over 42}$
 
 \section{Probability theory}
 Let $X$ be a discrete random variable with probability $p_X(x)$ of assuming the value $x$. It will then have an expected value (mean) $\mu=\mathbb{E}(X)=\sum_xxp_X(x)$ and variance $\sigma^2=V(X)=\mathbb{E}(X^2)-(\mathbb{E}(X))^2=\sum_x(x-\mathbb{E}(X))^2p_X(x)$ where $\sigma$ is the standard deviation. If $X$ is instead continuous it will have a probability density function $f_X(x)$ and the sums above will instead be integrals with $p_X(x)$ replaced by $f_X(x)$.

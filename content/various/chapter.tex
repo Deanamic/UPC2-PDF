@@ -8,10 +8,14 @@
 \section{Misc. algorithms}
 	\kactlimport{TernarySearch.h}
 	\kactlimport{Karatsuba.h}
+	\kactlimport{Josephus.h}
 
 \section{Dynamic programming}
 	\kactlimport{DivideAndConquerDP.h}
 	\kactlimport{KnuthDP.h}
+
+\section{Java}
+    \kactlimport[-l raw]{java.java}
 
 \section{Debugging tricks}
 	\begin{itemize}
@@ -30,6 +34,7 @@
             \item \texttt{checkerboard[y][x] = (x \& 1) \^{} (y \& 1)}
             \item \texttt{ffs(int x), ffs(ll x)} number of the least significant bit, \texttt{ffs(1 << i) = i+1}
             \item \texttt{\_\_builtin\_clz(uint x), ...\_clzll(ull)} number of leading zeros, for x > 0
+            \item \texttt{\_\_builtin\_ctz(uint x), ...\_ctzll(ull)} number of trailing zeros, for x > 0
             \item \texttt{\_\_builtin\_popcount(uint x), ...\_popcountll(ull)} number of 1 bits
             \item \texttt{\#define ld\_ll(X) (63-\_\_builtin\_clzll(ll(X)))} floor(log2(X))
 			\item \texttt{for (int x = m; x; ) \{ --x \&= m; ... \}} loops over all subset masks of \texttt{m} (except \texttt{m} itself).

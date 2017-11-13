@@ -18,8 +18,6 @@ struct SF {
 	bool operator<(const SF& s) const { return ord < s.ord; }
 };
 
-
-
 ll lcp(ll x, ll y, vector < vector < ll > > &B, ll N, ll step) {
 	if (x == y) return N - x;
 	ll res = 0;
@@ -27,9 +25,6 @@ ll lcp(ll x, ll y, vector < vector < ll > > &B, ll N, ll step) {
 		if (B[i][x] == B[i][y]) { x += 1<<i; y += 1<<i; res += 1<<i; }
 	return res;
 }
-
-
-
 
 void raddixSort(vector < SF > & A, vector < vector <ll > > & B, vector < ll > &times, vector < ll > & pos, vector < SF > & L2, ll N) {
 	ll k = max(N, 256LL);

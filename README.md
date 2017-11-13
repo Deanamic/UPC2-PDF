@@ -7,6 +7,7 @@
 - Data-Structures
 
   - [x] Linear Structures
+  - [ ] Fenwick Tree
   - [ ] Fenwick Tree 2D
   - [x] Ordered set
   - [ ] RMQ - maybe need testing
@@ -39,23 +40,29 @@
 
 - Strings
   - [x] Hashing
+  - [x] Manacher
   - [x] Palindromic tree
   - [x] Suffix array
-  - [ ] Aho corsaick - Need to find matches (swerc?)
+  - [ ] Aho corsaick - Need to find matches (swerc 14?)
   - [x] Z
-  
+  - [X] KMP
+  - [X] CYK
+  - [ ] min rotation
+
 - Graph
   - [x] Global mincut
   - [ ] Eulerian cycle - tested for undirected, should work for directed
   - [x] Maxflow
   - [x] SCC - tested on 2sat
   - [ ] Binary jump lca
-  - [ ] biconnected components + bridges + articulation points
-
+  - [ ] biconnected components + bridges + articulation points @michael
+  - [ ] stable marriage @michael
+  - [ ] weighted bipartite matching @michael
+  - [ ] dominator tree/lengauer tarjan @michael
 
 - Geometry
   - [ ] Spherical Distance
-  - [ ] Circle interection
+  - [ ] Circle interection @eric 600D Codeforces
 
 - Various
   - [ ] interval container + cover
@@ -68,45 +75,34 @@
 
 - Data-Structures
   - upc treap @eric
-  - upc fenwick (+ range updates) @dean
-  - lazy 2D
 
 - Numerical
   - change fft @eric
   - gauss bitset @dean
 
-- Parsing
-  - CYK
-
 - Number Theory
 
 - Strings
-  - min rotation
-  - manacher depending on space
-  - KMP?
 
 - Graph
   - maxflow mincap @eric
 
   Use UPC1 code and test in
     http://codeforces.com/gym/100199/attachments/download/1686/20022003-winter-petrozavodsk-camp-andrew-stankevich-contest-1-en.pdf
-    
+
   - maxflow mincost @eric
-  - bipartite matching + minimal vertex cover
-  - weighted bipartite matching
-  - Read/understand use of linkcut tree and compress tree
-  - dominator tree?
-  - mst directed
+  - bipartite matching + minimal vertex cover @dean
+    - max matching is number of vertexes in minimum edge cover
+  - Read/understand use of linkcut tree and compress tree @michael
+  - mst directed @dean
+  - minimum edge cover in DAG @dean
 
 - Geometry
-  - test circle intersection
 
-- Java
-
-- halfplane intesection
+- halfplane intesection @dean
 
 - misc problem explanations
 
-- Math: add integrals and derivatives
+- Math: add integrals and derivatives @eric
 
 Credits to KTH Royal institute of institute and Simon Lindholm for the base template of the Latex.
