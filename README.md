@@ -86,7 +86,12 @@
 
 - Graph
   - maxflow mincap @eric
+  
+  Use UPC1 code and test in
+    http://codeforces.com/gym/100199/attachments/download/1686/20022003-winter-petrozavodsk-camp-andrew-stankevich-contest-1-en.pdf
+    
   - maxflow mincost @eric
+  
   - bipartite matching + minimal vertex cover
   - weighted bipartite matching
   - Read/understand use of linkcut tree and compress tree
