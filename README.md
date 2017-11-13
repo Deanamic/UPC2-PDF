@@ -1,61 +1,65 @@
 # UPC2 PDF
 
+[Look for testing problems](https://a2oj.com/categories)
 
 ## Current Documents
 
 - Data-Structures
-  - Linear Structures - tested
-  - Fenwick Tree 2D - unknown
-  - (lazy) segment tree - michael version tested
 
-- Mathematics
+  - [x] Linear Structures
+  - [ ] Fenwick Tree 2D
+  - [x] Ordered set
+  - [ ] RMQ - maybe need testing
+  - [x] SegTree
 
 - Numerical
-  - Simplex - tested
-  - Gauss - tested
-  - FFT - unknown
-  - polyroot + test - untested
-  - polynomial interpolation - untested
-  - numerical integration - untested
-  - matrix inverse - untested
+  - [x] Simplex
+  - [x] Gauss
+  - [ ] FFT - unknown
+  - [ ] [Integer Determinant](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=625)
+  - [ ] polyroot + test
+  - [ ] polynomial interpolation
+  - [ ] numerical integration
+  - [ ] matrix inverse
 
 - Number Theory
-  - Modular operations - Tested
-  - integer FFT - Tested
-  - double fft - works
-  - primality tests - unknown
-  - Chinese Remainder - tested
+  - [x] Modular operations
+  - [ ] integer FFT
+  - [ ] double fft
+  - [ ] primality tests
+  - [x] Chinese Remainder
 
 - Combinatorial
-  - derangements - untested
-  - intperm - untested
-  - binomial - untested
-  - binomial mod prime (lucas theorem) - untested
-  - rolling binomial - untested
-  - multinomial - untested
+  - [ ] derangements - untested
+  - [ ] intperm - untested
+  - [ ] binomial - untested
+  - [ ] binomial mod prime (lucas theorem) - untested
+  - [ ] rolling binomial - untested
+  - [ ] multinomial - untested
 
 - Strings
-  - Hashing - tested
-  - Palindromic tree - tested
-  - Suffix array - tested
-  - Aho corsaick - tested
-
+  - [x] Hashing
+  - [x] Palindromic tree
+  - [x] Suffix array
+  - [ ] Aho corsaick - Need to find matches (swerc?)
+  - [x] Z
+  
 - Graph
-  - global mincut - tested
-  - Eulerian cycle - tested for undirected, should work for directed
-  - Maxflow - tested
-  - SCC - tested on 2sat
-  - biconected components & bridges & articulation points - untested
+  - [x] Global mincut
+  - [ ] Eulerian cycle - tested for undirected, should work for directed
+  - [x] Maxflow
+  - [x] SCC - tested on 2sat
+  - [ ] Binary jump lca
+  - [ ] biconnected components + bridges + articulation points
+
 
 - Geometry
-  Most functions are tested
-  - Spherical Distance - somewhat tested
-  - Circle interection - somewhat tested
+  - [ ] Spherical Distance
+  - [ ] Circle interection
 
 - Various
-  - intreval container + cover - untested
-  - dp tricks - untested
-
+  - [ ] interval container + cover
+  - [ ] dp tricks
 
 ## Things to do
 
@@ -68,11 +72,8 @@
   - lazy 2D
 
 - Numerical
-  - gauss mod p @dean
   - change fft @eric
   - gauss bitset @dean
-  - remove ntt
-  - lucas theorem @michael - done
 
 - Parsing
   - CYK
@@ -82,17 +83,15 @@
 - Strings
   - min rotation
   - manacher depending on space
-  - Z algo
   - KMP?
 
 - Graph
   - maxflow mincap @eric
-  
+
   Use UPC1 code and test in
     http://codeforces.com/gym/100199/attachments/download/1686/20022003-winter-petrozavodsk-camp-andrew-stankevich-contest-1-en.pdf
     
   - maxflow mincost @eric
-  
   - bipartite matching + minimal vertex cover
   - weighted bipartite matching
   - Read/understand use of linkcut tree and compress tree
@@ -102,14 +101,7 @@
 - Geometry
   - test circle intersection
 
-- Various
-  - intreval container + cover - done
-  - dp tricks - done
-  - tsp?
-
 - Java
-
-- bit operations - done
 
 - halfplane intesection
 
