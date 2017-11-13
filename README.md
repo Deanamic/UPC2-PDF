@@ -65,6 +65,7 @@
 - Data-Structures
   - upc treap @eric
   - upc fenwick (+ range updates) @dean
+  - lazy 2D
 
 - Numerical
   - gauss mod p @dean
