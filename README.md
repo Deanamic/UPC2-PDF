@@ -59,6 +59,7 @@
   - [ ] stable marriage @michael
   - [ ] weighted bipartite matching @michael
   - [ ] dominator tree/lengauer tarjan @michael
+  - [ ] link cut tree @michael
 
 - Geometry
   - [ ] Spherical Distance
@@ -95,7 +96,6 @@
   https://community.topcoder.com/stat?c=problem_statement&pm=3530&rd=6535
   - bipartite matching + minimal vertex cover @dean
     - max matching is number of vertexes in minimum edge cover
-  - Read/understand use of linkcut tree and compress tree @michael
   - mst directed @dean
   - minimum edge cover in DAG @dean
 
