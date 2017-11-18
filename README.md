@@ -56,7 +56,7 @@
   - [x] SCC - tested on 2sat
   - [ ] Binary jump lca
   - [X] biconnected components + bridges + articulation points @michael
-  - [ ] stable marriage @michael
+  - [X] stable marriage @michael
   - [ ] weighted bipartite matching @michael
   - [ ] dominator tree/lengauer tarjan @michael
   - [ ] link cut tree @michael

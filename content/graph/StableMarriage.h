@@ -3,7 +3,7 @@
  * License: ???
  * Description: findMatch finds a stable matching where the first groups is prefered given the preference lists of two groups of persons
  * Time: O(N^2)
- * Status: FAU tested
+ * Status: tested on https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=1838
  * Usage: pr1[i] = preference list of person i (from 1. list) (format A), pr2[i][j] = position in the preference list of person j (from 1. list), in preference list of i (from 2. list) (format B)
  */
 #pragma once
@@ -12,7 +12,7 @@ const int MAXN = 4 * 1024;
 
 int pr1[MAXN][MAXN],pr2[MAXN][MAXN];
 int match[MAXN]; // match[i]=partner of person i out of group 2
-int res[MAXN];   // res[i]=partner of person i out of group 2
+int res[MAXN];   // res[i]=partner of person i out of group 1
 int id[MAXN];
 int N;
 void findMatch() {
