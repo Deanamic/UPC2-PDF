@@ -55,7 +55,7 @@
   - [x] Maxflow
   - [x] SCC - tested on 2sat
   - [ ] Binary jump lca
-  - [ ] biconnected components + bridges + articulation points @michael
+  - [X] biconnected components + bridges + articulation points @michael
   - [ ] stable marriage @michael
   - [ ] weighted bipartite matching @michael
   - [ ] dominator tree/lengauer tarjan @michael
