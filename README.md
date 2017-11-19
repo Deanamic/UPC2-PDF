@@ -55,7 +55,7 @@
   - [ ] Eulerian cycle - tested for undirected, should work for directed
   - [x] Maxflow
   - [x] SCC - tested on 2sat
-  - [ ] Binary jump lca
+  - [X] Binary jump lca
   - [X] biconnected components + bridges + articulation points @michael
   - [X] stable marriage @michael
   - [ ] weighted bipartite matching @michael
