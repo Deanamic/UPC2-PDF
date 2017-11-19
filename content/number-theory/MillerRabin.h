@@ -6,6 +6,7 @@
  * Description: Miller-Rabin primality probabilistic test.
  * Probability of failing one iteration is at most 1/4. 15 iterations should be
  * enough for 50-bit numbers.
+ * Status: tested on GCPC15 F
  * Time: 15 times the complexity of $a^b \mod c$.
  */
 #pragma once

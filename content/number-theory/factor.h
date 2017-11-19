@@ -6,6 +6,8 @@
  * Description: Pollard's rho algorithm. It is a probabilistic factorisation
  * algorithm, whose expected time complexity is good. Before you start using it,
  * run {\tt init(bits)}, where bits is the length of the numbers you use.
+ * to get factor multiple times, uncomment comments with (*)
+ * Status: tested on jutge Factorization and GCPC15 F
  * Time: Expected running time should be good enough for 50-bit numbers.
  */
 #pragma once
@@ -22,8 +24,8 @@ vector<ull> factor(ull d) {
 	vector<ull> res;
 	for (size_t i = 0; i < pr.size() && pr[i]*pr[i] <= d; i++)
 		if (d % pr[i] == 0) {
-			while (d % pr[i] == 0) d /= pr[i];
-			res.push_back(pr[i]);
+			while (d % pr[i] == 0) /*{ */ d /= pr[i];
+			res.push_back(pr[i]); /*} (*)*/
 		}
 	//d is now a product of at most 2 primes.
 	if (d > 1) {
@@ -38,7 +40,7 @@ vector<ull> factor(ull d) {
 			}
 			if (c != d) {
 				res.push_back(c); d /= c;
-				if (d != c) res.push_back(d);
+				if (d != c /* || true (*)*/) res.push_back(d);
 				break;
 			}
 		}
@@ -47,7 +49,7 @@ vector<ull> factor(ull d) {
 }
 void init(int bits) {//how many bits do we use?
 	vi p = eratosthenes_sieve(1 << ((bits + 2) / 3));
-	vector<ull> pr(p.size());
+	pr.resize(p.size());
 	for (size_t i=0; i<pr.size(); i++)
 		pr[i] = p[i];
 }

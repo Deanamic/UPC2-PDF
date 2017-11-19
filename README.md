@@ -28,7 +28,7 @@
   - [x] Modular operations
   - [ ] integer FFT
   - [ ] double fft
-  - [ ] primality tests
+  - [x] primality tests
   - [x] Chinese Remainder
 
 - Combinatorial
