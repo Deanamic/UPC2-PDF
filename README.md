@@ -22,7 +22,7 @@
   - [ ] polyroot + test
   - [ ] polynomial interpolation
   - [X] numerical integration
-  - [ ] matrix inverse
+  - [X] matrix inverse
 
 - Number Theory
   - [x] Modular operations
