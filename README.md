@@ -12,6 +12,7 @@
   - [x] Ordered set
   - [ ] RMQ - maybe need testing
   - [x] SegTree
+  - [x] Treap
 
 - Numerical
   - [x] Simplex
@@ -73,9 +74,6 @@
 
 - Doc
   - add defines to template
-
-- Data-Structures
-  - upc treap @eric
 
 - Numerical
   - change fft @eric
