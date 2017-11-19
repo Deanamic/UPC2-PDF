@@ -1,3 +1,11 @@
+/**
+ * Author: Eric
+ * Date: 2017-11-19
+ * License: CC0
+ * Source: folklore
+ * Description: Treap
+ * Time: Expected $O(\log N)$
+ */
 struct Tree {
   Tree *left, *right, *parent; // if parent needed.
   ll x, y, count;
