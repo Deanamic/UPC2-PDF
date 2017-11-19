@@ -21,7 +21,7 @@
   - [ ] [Integer Determinant](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=625)
   - [ ] polyroot + test
   - [ ] polynomial interpolation
-  - [ ] numerical integration
+  - [X] numerical integration
   - [ ] matrix inverse
 
 - Number Theory
