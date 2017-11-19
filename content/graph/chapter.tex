@@ -1,5 +1,4 @@
 \chapter{Graph}
-\kactlimport{Johnson.h}
 \kactlimport{globalmincut.h}
 \kactlimport{EulerianCycle.h}
 \kactlimport{MaxFlow.h}
@@ -20,3 +19,25 @@ Optim = $\min_{v\in V}\max_{0\leq k\leq n - 1}\left\{\frac{d_n(v) - d_k(v)}{n - 
 \textbf{Formula Euler}: v-e+f = 2\\
 \textbf{Theorem 1}: If $v>= 3$ then $e<=3v-6$.\\
 \textbf{Theorem 2}: If $v>3$ and there are no cycles of length 3, then $e<= 2v-4$.\\
+
+\section{Bipartite Graphs}
+let G = (V,E) be a Bipartite graph, we will call each part L and R respectively.\\
+\textbf{Maximum Matching} is equal to \textbf{Minimum Vertex Cover}, to get the nodes in the MVC we choose the unmatched vertices of L
+and run a BFS/DFS in the graph with edges in the matching directed from R to L, and edges not in the matching directed from L to R. Let's all this Z,
+now MVC = (L\textbackslash Z) $\cup$ (R $\cap$ Z). \\
+The \textbf{Minimum Edge Cover} is obtained by doing a Maximum Matching, Then run a BFS/DFS from unmatched vertices of L, 
+the MEC is the unreachable vertices of A and reachable vertices of B.\\
+The \textbf{Maximum Independent Set} is the complementary of the \textbf{Minimum Vertex Cover}
+\subsection{DAG}
+The \textbf{Minimum Path Cover} is given by the edges in the MM of the bipartite graph after doubling the vertices.
+\section{ASSP : Johnson Algorithm}
+We have a sparse graph with, possibly, negative edges. We want to compute the all-pairs shortest path. Floyd Warshall may be too slow.\\
+Algorithm: \\
+1) A new node q is added to the graph, connected by zero-weight edges to each of the other nodes.\\
+2) Bellman–Ford algorithm is used, starting from the new vertex q, to find for each vertex v the minimum weight h(v) of a path from q to v. \\
+If this step detects a negative cycle, the algorithm is terminated as the shortest-path is undefined.\\
+3) edges of the original graph are reweighted using the values computed by the Bellman–Ford algorithm: \\
+an edge from u to v, having length w(u,v), is given by the new length w(u,v) + h(u) - h(v).\\
+4) q is removed, and Dijkstra's algorithm is used to find the shortest paths from each node s to every other vertex in the reweighted graph.\\
+5) Dijkstra from every node. The shortest path in this new graph is the same as in the initial graph although it's weight changes.\\
+The idea is to do dijkstra by storing "weight in new graph" and "weight in old graph" sorting by the first one.\\
