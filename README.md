@@ -34,10 +34,10 @@
 - Combinatorial
   - [ ] derangements - untested
   - [ ] intperm - untested
-  - [ ] binomial - untested
-  - [ ] binomial mod prime (lucas theorem) - untested
-  - [ ] rolling binomial - untested
-  - [ ] multinomial - untested
+  - [X] binomial - untested
+  - [X] binomial mod prime (lucas theorem) - untested
+  - [X] rolling binomial - untested
+  - [X] multinomial - untested
 
 - Strings
   - [x] Hashing
