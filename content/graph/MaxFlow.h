@@ -2,7 +2,7 @@
  * Author: Eric
  * License: CC0
  * Description: Returns maximum flow.
- * Time: O(VE^2) for general graphs and O(E*sqrt(V))) for the maximum matching problem (bipartite unit weighted graf). It is generally very fast.
+ * Time: O(V^2 * E) for general graphs. For unit capacities O(min(V^(2/3), E^(1/2)) * E). For maximum matching O(E*sqrt(V)))(bipartite unit weighted graf). It is generally very fast.
  * Status: Tested
  * Usage: To obtain a cut in the mincut problem one must bfs from the source. All the vertices reached from it using only edges with capacity > 0 are in the same cut
  */
