@@ -5,7 +5,7 @@
  * Source: UPC
  * Description: adj is and adjacency list, deg is the degree of the vertex. You shouldn't touch padre. w,cap are matrices, NOT LISTS!
  * Time:
- * Status: Not tested
+ * Status: Tested. http://www.spoj.com/problems/GREED/
  */
 
 typedef pair < ll, ll > PLI;
