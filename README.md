@@ -21,8 +21,8 @@
   - [X] FFT double
   - [ ] FFT integer
   - [X] [Integer Determinant](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=625)
-  - [ ] polyroot + test
-  - [ ] polynomial interpolation
+  - [X] polyroot + test
+  - [X] polynomial interpolation
   - [X] numerical integration
   - [X] matrix inverse
 
@@ -73,7 +73,6 @@
 ## Things to do
 
 - Doc
-  - add defines to template
 
 - Numerical
 
@@ -87,8 +86,6 @@
   Use UPC1 code and test in
     http://codeforces.com/gym/100199/attachments/download/1686/20022003-winter-petrozavodsk-camp-andrew-stankevich-contest-1-en.pdf
 
-  - mst directed @dean
-  - minimum edge cover in DAG @dean
 
 - Geometry
 
