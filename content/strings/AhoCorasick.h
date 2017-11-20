@@ -37,7 +37,6 @@ struct Trie{
                 if(j == -1) V[pos].SuffixLink = 0;
                 else {
                     V[pos].SuffixLink = V[j].nxt[val];
-                    for(auto &i : V[V[pos].SuffixLink].end) V[pos].end.emplace_back(i);
                     //V[pos].bitmask |= V[V[pos].SuffixLink].bitmask;
                 }
 
@@ -74,8 +73,11 @@ struct Trie{
             while(pos > -1 && !V[pos].nxt[val]) pos = V[pos].SuffixLink;
             if(pos == -1) pos = 0;
             else pos = V[pos].nxt[val];
-            if(V[pos].end.size()) {
+
+            int auxpos = pos;
+            while(auxpos > -1) {
                 for(auto &i : V[pos].end) ans.emplace_back(i);
+                auxpos = V[auxpos].SuffixLink;
             }
         }
         return ans;
