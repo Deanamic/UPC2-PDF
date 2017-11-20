@@ -20,7 +20,7 @@
   - [X] gauss bitset @dean
   - [X] FFT double
   - [ ] FFT integer
-  - [ ] [Integer Determinant](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=625)
+  - [X] [Integer Determinant](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=625)
   - [ ] polyroot + test
   - [ ] polynomial interpolation
   - [X] numerical integration

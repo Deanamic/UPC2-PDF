@@ -4,7 +4,7 @@
  * License: CC0
  * Source: folklore
  * Description: Calculates determinant of a matrix. Destroys the matrix.
- * Status: somewhat tested
+ * Status: somewhat tested on https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=&problem=625 (ll and long double)
  * Time: $O(N^3)$
  */
 #pragma once
