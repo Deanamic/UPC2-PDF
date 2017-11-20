@@ -8,7 +8,11 @@
  * Status: Not tested
  */
 
-#define NN 200
+typedef pair < ll, ll > PLI;
+
+const int INF = 2e9;
+
+#define NN 505
 #define pot(u,v) (pi[u]-pi[v])
 int adj[NN][NN], deg[NN], padre[NN];
 ll w[NN][NN], cap[NN][NN], pi[NN], d[NN], f[NN][NN], dist[NN];
@@ -16,7 +20,7 @@ int N;
 ll flow, cost;
 bool dijkstra(int s, int t) {
   memset(padre, -1, sizeof(padre));
-  REP(i,N) d[i] = INF;
+  FOR(i,0,N) d[i] = INF;
   d[s] = 0;
   priority_queue<PLI> Q;
   Q.push(PLI(0,s));
@@ -25,7 +29,7 @@ bool dijkstra(int s, int t) {
     ll dist = -Q.top().first;
     Q.pop();
     if (dist != d[u]) continue;
-    REP(i,deg[u]) {
+    FOR(i,0,deg[u]) {
       int v = adj[u][i];
       if (f[u][v] >= 0 and cap[u][v] - f[u][v] > 0 and
           d[v] > d[u] + pot(u,v) + w[u][v]) {
@@ -40,7 +44,7 @@ bool dijkstra(int s, int t) {
       }
     }
   }
-  REP(i,N) if (pi[i] < INF) pi[i] += d[i];
+  FOR(i,0,N) if (pi[i] < INF) pi[i] += d[i];
   return padre[t] >= 0;
 }
 void maxmin(int s, int t) {
@@ -62,6 +66,7 @@ void maxmin(int s, int t) {
     flow += bot;
   }
 }
+
 void negative_edges(int s, int t) {
   for (int i = 0; i < N; ++i) dist[i] = INF;
   dist[s] = 0;
