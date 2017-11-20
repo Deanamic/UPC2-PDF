@@ -7,8 +7,8 @@
 - Data-Structures
 
   - [x] Linear Structures
-  - [ ] Fenwick Tree
-  - [ ] Fenwick Tree 2D
+  - [X] Fenwick Tree
+  - [X] Fenwick Tree 2D
   - [x] Ordered set
   - [ ] RMQ - maybe need testing
   - [x] SegTree
@@ -17,6 +17,7 @@
 - Numerical
   - [x] Simplex
   - [x] Gauss
+  - [ ] gauss bitset @dean
   - [ ] FFT - unknown
   - [ ] [Integer Determinant](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=625)
   - [ ] polyroot + test
@@ -77,7 +78,6 @@
 
 - Numerical
   - change fft @eric
-  - gauss bitset @dean
 
 - Number Theory
 

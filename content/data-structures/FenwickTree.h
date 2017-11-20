@@ -5,6 +5,7 @@
  * Source: folklore/TopCoder
  * Description: Computes partial sums a[0] + a[1] + ... + a[pos - 1], and updates single elements a[i],
  * taking the difference between the old and new value.
+ * Status: tested on http://codeforces.com/contest/369/problem/E
  * Time: Both operations are $O(\log N)$.
  */
 #pragma once
