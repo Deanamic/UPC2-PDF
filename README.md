@@ -32,8 +32,8 @@
   - [x] Chinese Remainder
 
 - Combinatorial
-  - [ ] derangements - untested
-  - [ ] intperm - untested
+  - [x] derangements - untested
+  - [x] intperm - untested
   - [X] binomial - untested
   - [X] binomial mod prime (lucas theorem) - untested
   - [X] rolling binomial - untested
@@ -76,7 +76,6 @@
   - add defines to template
 
 - Numerical
-  - change fft @eric
 
 - Number Theory
 
@@ -88,8 +87,6 @@
   Use UPC1 code and test in
     http://codeforces.com/gym/100199/attachments/download/1686/20022003-winter-petrozavodsk-camp-andrew-stankevich-contest-1-en.pdf
 
-  - bipartite matching + minimal vertex cover @dean
-    - max matching is number of vertexes in minimum edge cover
   - mst directed @dean
   - minimum edge cover in DAG @dean
 
