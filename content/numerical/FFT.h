@@ -10,7 +10,7 @@
    works if $(|a| + |b|)\max(a, b) < \mathtt{\sim} 10^9$ (in theory maybe $10^6$);
    you may want to use an NTT from the Number Theory chapter instead.
  * Time: O(N \log N)
- * Status: somewhat tested
+ * Status: somewhat tested on http://www.spoj.com/problems/POLYMUL/
  */
 #pragma once
 

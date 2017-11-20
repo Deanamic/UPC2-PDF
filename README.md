@@ -17,8 +17,9 @@
 - Numerical
   - [x] Simplex
   - [x] Gauss
-  - [ ] gauss bitset @dean
-  - [ ] FFT - unknown
+  - [X] gauss bitset @dean
+  - [X] FFT double
+  - [ ] FFT integer
   - [ ] [Integer Determinant](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=625)
   - [ ] polyroot + test
   - [ ] polynomial interpolation
@@ -27,8 +28,6 @@
 
 - Number Theory
   - [x] Modular operations
-  - [ ] integer FFT
-  - [ ] double fft
   - [x] primality tests
   - [x] Chinese Remainder
 
@@ -49,7 +48,7 @@
   - [x] Z
   - [X] KMP
   - [X] CYK
-  - [ ] min rotation
+  - [X] min rotation
 
 - Graph
   - [x] Global mincut
