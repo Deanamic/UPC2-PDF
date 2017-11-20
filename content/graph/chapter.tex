@@ -1,16 +1,17 @@
 \chapter{Graph}
-\kactlimport{globalmincut.h}
 \kactlimport{EulerianCycle.h}
-\kactlimport{MaxFlow.h}
-\kactlimport{StableMarriage.h}
-\kactlimport{MaxWeightBipartiteMatching.h}
 \kactlimport{SCC.h}
+\kactlimport{BiconnectedComponents.h}
+\kactlimport{MinimalArborescence.h}
 \kactlimport{BinaryJumps.h}
 \kactlimport{LinkCutTree.h}
+\kactlimport{LengauerTarjan.h}
+\kactlimport{MaxFlow.h}
 \kactlimport{MaxflowMinCap.h}
 \kactlimport{MaxflowMinCost.h}
-\kactlimport{BiconnectedComponents.h}
-\kactlimport{LengauerTarjan.h}
+\kactlimport{StableMarriage.h}
+\kactlimport{MaxWeightBipartiteMatching.h}
+\kactlimport{globalmincut.h}
 \section{Karp's Minimum Mean Cycle}
 1. Initialize: $d_0(r) = 0$ and $\forall v\in V - \{r\}$,$d_0(v) = \infty$.\\
 2. For $i = 1$ to $n$:\\
@@ -27,7 +28,7 @@ let G = (V,E) be a Bipartite graph, we will call each part L and R respectively.
 \textbf{Maximum Matching} is equal to \textbf{Minimum Vertex Cover}, to get the nodes in the MVC we choose the unmatched vertices of L
 and run a BFS/DFS in the graph with edges in the matching directed from R to L, and edges not in the matching directed from L to R. Let's all this Z,
 now MVC = (L\textbackslash Z) $\cup$ (R $\cap$ Z). \\
-The \textbf{Minimum Edge Cover} is obtained by doing a Maximum Matching, Then run a BFS/DFS from unmatched vertices of L, 
+The \textbf{Minimum Edge Cover} is obtained by doing a Maximum Matching, Then run a BFS/DFS from unmatched vertices of L,
 the MEC is the unreachable vertices of A and reachable vertices of B.\\
 The \textbf{Maximum Independent Set} is the complementary of the \textbf{Minimum Vertex Cover}
 \subsection{DAG}

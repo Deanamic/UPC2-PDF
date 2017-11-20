@@ -7,33 +7,33 @@
 - Data-Structures
 
   - [x] Linear Structures
-  - [ ] Fenwick Tree
-  - [ ] Fenwick Tree 2D
+  - [X] Fenwick Tree
+  - [X] Fenwick Tree 2D
   - [x] Ordered set
-  - [ ] RMQ - maybe need testing
+  - [X] RMQ
   - [x] SegTree
   - [x] Treap
 
 - Numerical
   - [x] Simplex
   - [x] Gauss
-  - [ ] FFT - unknown
-  - [ ] [Integer Determinant](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=625)
-  - [ ] polyroot + test
-  - [ ] polynomial interpolation
+  - [X] gauss bitset @dean
+  - [X] FFT double
+  - [ ] FFT integer
+  - [X] [Integer Determinant](https://uva.onlinejudge.org/index.php?option=onlinejudge&page=show_problem&problem=625)
+  - [X] polyroot + test
+  - [X] polynomial interpolation
   - [X] numerical integration
   - [X] matrix inverse
 
 - Number Theory
   - [x] Modular operations
-  - [ ] integer FFT
-  - [ ] double fft
   - [x] primality tests
   - [x] Chinese Remainder
 
 - Combinatorial
-  - [ ] derangements - untested
-  - [ ] intperm - untested
+  - [x] derangements - untested
+  - [x] intperm - untested
   - [X] binomial - untested
   - [X] binomial mod prime (lucas theorem) - untested
   - [X] rolling binomial - untested
@@ -48,7 +48,7 @@
   - [x] Z
   - [X] KMP
   - [X] CYK
-  - [ ] min rotation
+  - [X] min rotation
 
 - Graph
   - [x] Global mincut
@@ -73,11 +73,8 @@
 ## Things to do
 
 - Doc
-  - add defines to template
 
 - Numerical
-  - change fft @eric
-  - gauss bitset @dean
 
 - Number Theory
 
@@ -89,13 +86,6 @@
   Use UPC1 code and test in
     http://codeforces.com/gym/100199/attachments/download/1686/20022003-winter-petrozavodsk-camp-andrew-stankevich-contest-1-en.pdf
 
-  - maxflow mincost @eric
-  Use UPC1 code and test in
-  https://community.topcoder.com/stat?c=problem_statement&pm=3530&rd=6535
-  - bipartite matching + minimal vertex cover @dean
-    - max matching is number of vertexes in minimum edge cover
-  - mst directed @dean
-  - minimum edge cover in DAG @dean
 
 - Geometry
 

@@ -3,7 +3,17 @@
  * Date: 2017-04-17
  * License: CC0
  * Source: folklore
- * Description: Finds all biconnected components in an undirected graph. In a biconnected component there are at least two distinct paths between any two nodes. A node can be in serveral or none components. if(true) at (*) creates pseudo bridge components. With these each node has at least one component and a node is an articulation point iff it has > 1 components. A bridge is not part of any cycle. To find biconnected components, which contain articulation points (see windmill graph), run without (*) and join all components of nodes, which are in more than one component, using union find and create new component for nodes without components. Then the components form a tree.
+ * Description: Finds all biconnected components in an undirected
+ * graph. In a biconnected component there are at least two distinct
+ * paths between any two nodes. A node can be in serveral or none
+ * components. if(true) at (*) creates pseudo bridge components. With
+ * these each node has at least one component and a node is an
+ * articulation point iff it has > 1 components. A bridge is not part
+ * of any cycle. To find biconnected components, which contain
+ * articulation points (see windmill graph), run without (*) and join
+ * all components of nodes, which are in more than one component,
+ * using union find and create new component for nodes without
+ * components. Then the components form a tree.
  * Time: O(E + V)
  * Status: tested during MIPT ICPC Workshop 2017 and on Worlds 11 H (solution see http://www.csc.kth.se/~austrin/icpc/finals2011solutions.pdf) and on http://codeforces.com/contest/652/problem/E
  */

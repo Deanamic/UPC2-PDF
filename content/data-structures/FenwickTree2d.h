@@ -1,35 +1,33 @@
 /**
- * Author: Simon Lindholm
- * Date: 2017-05-11
- * License: CC0
- * Source: folklore
+ * Author: jz33 & Michael
+ * Date: ???
+ * License: ???
+ * Source: https://github.com/jz33/LeetCodeSolutions/blob/master/308%20Range%20Sum%20Query%202D%20-%20Mutable.java
  * Description: Computes sums a[i,j] for all i<I, j<J, and increases single elements a[i,j].
- *  Requires that the elements to be updated are known in advance (call fakeUpdate() before init()).
- * Time: $O(\log^2 N)$. (Use persistent segment trees for $O(\log N)$.)
+ * Status: tested on http://www.spoj.com/problems/MATSUM/
+ * Time: $O(\log^2 N)$.
  */
 #pragma once
 
-#include "FenwickTree.h"
-
 struct FT2 {
-	vector<vi> ys; vector<FT> ft;
-	FT2(int limx) : ys(limx) {}
-	void fakeUpdate(int x, int y) {
-		for (; x < sz(ys); x |= x + 1) ys[x].push_back(y);
-	}
-	void init() {
-		trav(v, ys) sort(all(v)), ft.emplace_back(sz(v));
-	}
-	int ind(int x, int y) {
-		return (int)(lower_bound(all(ys[x]), y) - ys[x].begin()); }
-	void update(int x, int y, ll dif) {
-		for (; x < sz(ys); x |= x + 1)
-			ft[x].update(ind(x, y), dif);
-	}
-	ll query(int x, int y) {
-		ll sum = 0;
-		for (; x; x &= x - 1)
-			sum += ft[x-1].query(ind(x-1, y));
-		return sum;
-	}
+    ll R, C;
+    vector<vector<ll>> tree;
+
+	// note r+1 & c+1
+    NumMatrix(ll r, ll c) : R(r), C(c), tree(r+1, vector<ll>(c+1)) { }
+
+    void update(int row, int col, int diff) {
+        for(int i = row+1;i<=R;i += (i & -i))
+            for(int j = col+1;j<=C;j += (j & -j))
+                tree[i][j] += diff;
+    }
+
+    int sum(int row, int col) {
+        int r = 0;
+        // Not i >= 0
+        for(int i = row;i > 0;i -= (i & -i))
+            for(int j = col;j > 0;j -= (j & -j))
+                r += tree[i][j];
+        return r;
+    }
 };
