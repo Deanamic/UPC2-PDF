@@ -1,7 +1,7 @@
 /**
  * Author: Dean & Michael
  * License: CC0
- * Description: Computes lca with binaryjumps. Insert nodes in dfs preorder
+ * Description: Computes lca with binaryjumps. Insert nodes in dfs preorder. NODES MUST BE 1 INDEXED! (or add 1 to the parameters in each function here)
  * Time: O(n \log n)
  * Status: Tested on http://codeforces.com/contest/757/problem/F
  */
