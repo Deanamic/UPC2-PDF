@@ -10,7 +10,7 @@
   - [X] Fenwick Tree
   - [X] Fenwick Tree 2D
   - [x] Ordered set
-  - [ ] RMQ - maybe need testing
+  - [X] RMQ
   - [x] SegTree
   - [x] Treap
 

@@ -6,7 +6,7 @@
  * Description: Range minimum query
  * Usage: Call function build and then use query to return the smallest value, ST stores the index to the value.
  * Time: $<O(N\log N), O(1)>$
- * Status: Tested?
+ * Status: Tested on SPOJ RMQSQ
  */
 
 struct SparseTable {
@@ -38,6 +38,7 @@ struct SparseTable {
         }
     }
 
+	// minimum in range [l, r] (both inclusive)
     int query(int l, int r){
         int LOG = P[r-l+1];
         return min(v[ST[l][LOG]], v[ST[r - (1 << LOG) + 1][LOG]]);
