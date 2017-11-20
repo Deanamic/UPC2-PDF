@@ -89,9 +89,6 @@
   Use UPC1 code and test in
     http://codeforces.com/gym/100199/attachments/download/1686/20022003-winter-petrozavodsk-camp-andrew-stankevich-contest-1-en.pdf
 
-  - maxflow mincost @eric
-  Use UPC1 code and test in
-  https://community.topcoder.com/stat?c=problem_statement&pm=3530&rd=6535
   - bipartite matching + minimal vertex cover @dean
     - max matching is number of vertexes in minimum edge cover
   - mst directed @dean
