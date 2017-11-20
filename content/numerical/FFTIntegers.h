@@ -48,36 +48,6 @@ vector<int> convolution(vector<int> a, vector<int> b){
 
 //2**13 : 8192 16384 32768
 vector<int> Mult(vector<int> a, vector<int> b) {
-	int exponent = 13;
-	int sqrt2 = 1 << bt;
-	int mod = 1e9 + 7; //has to be smaller than mod from ntt
-	vector<int> a1(a.size()), a2(a.size()), b1(b.size()), b2.a.size();
-	int sz = 1;
-	for(int i = 0; (int) i < a.size(); ++i) {
-		a1[i] = a[i] >> exponent;
-		a2[i] = a[i] & ((1 << (exponent+1)) - 1);
-	}
-
-	for(int i = 0; (int) i < b.size(); ++i) {
-		b1[i] = b[i] >> exponent;
-		b2[i] = b[i] & ((1 << (exponent+1)) - 1);
-	}
-
-	vector<int> a1b1 = convolution(a1,b1), a1b2 = convolution(a1,b2), a2b1 = convolution(a2,b1), a2b2 = convolution(a2,b2);
-	vector<long long> ans(a1b1.size());
-	for(int i = 0; i < (int) a1b1.size(); ++i) {
-		ans[i] = a1b1[i]%mod;
-		long long x = ((long long)(a1b2[i] + a2b1[i]) * (1LL << 13))%mod;
-		long long y = (a2b2[i] * 1LL << 26)%mod;;
-		ans[i] += x;
-		ans[i] %= mod;
-		ans[i] += y;
-		ans[i] %= mod;
-	}
-	return ans;
-}
-
-vector<int> Mult(vector<int> a, vector<int> b) {
 	int exponent = 11; //change so that M/2^exp is as small as possible
 	int sqrt2 = 1 << (exponent);
 	int mod = 1e9 + 7; //has to be smaller than mod from ntt
