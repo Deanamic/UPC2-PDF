@@ -44,7 +44,7 @@
   - [x] Manacher
   - [x] Palindromic tree
   - [x] Suffix array
-  - [ ] Aho corsaick - Need to find matches (swerc 14?)
+  - [x] [Aho corsaick](http://www.spoj.com/problems/STRMATCH/)
   - [x] Z
   - [X] KMP
   - [X] CYK
