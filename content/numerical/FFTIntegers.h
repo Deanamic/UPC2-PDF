@@ -3,7 +3,7 @@
  * License: ???
  * Description: NTT
  * Time: O(N \log N)
- * Status: ???
+ * Status: Tested on a problem with no overflows, bruteforce tested for n = 1000 no overflows mod p
  */
 LL fpw(LL a, LL b, LL p){
     LL r = 1; while(b){if(b&1) r=r*a%p; a=a*a%p; b/=2;} return r;
