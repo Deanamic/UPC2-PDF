@@ -3,8 +3,8 @@
  * License: CC0
  * Description: Builds an Ahocorasick Trie, with suffix links
  * Time: O(n + m + z)
- * Status: Trie Tested, suffixlink tested, finding matches lightly tested
- * Usage: This is an offline Algorithm, Pass the vector of patterns to Trie.init(), find function return the words matched in order of matching
+ * Status: Tested http://www.spoj.com/problems/STRMATCH/
+ * Usage: This is an offline Algorithm, Pass the vector of patterns to Trie.init(), find function returns the number of times each string appears, two patterns can be equal
  */
 
 const int MaxM = 200005;
@@ -19,9 +19,11 @@ struct Trie{
         vector<int> end;
         //bitset<MaxN> bitmask;
         int SuffixLink;
+		int cnt = 0;
     };
     vector<node> V;
-
+	int num;
+	stack<int> reversebfs;
     inline int getval(char c) {
         return c - first;
     }
@@ -29,56 +31,54 @@ struct Trie{
     void CreateSuffixLink() {
         queue<int> q;
         for(q.push(0); q.size(); q.pop()) {
-            int pos = q.front();      if(!pos) V[pos].SuffixLink = -1;
-            else {
-                int val = getval(V[pos].c);
-                int j = V[V[pos].p].SuffixLink;
-                while(j > -1 && !V[j].nxt[val]) j = V[j].SuffixLink;
-                if(j == -1) V[pos].SuffixLink = 0;
-                else {
-                    V[pos].SuffixLink = V[j].nxt[val];
-                    //V[pos].bitmask |= V[V[pos].SuffixLink].bitmask;
-                }
-
+            int pos = q.front();      
+			reversebfs.push(pos);
+			for(int i = 0; i < Alpha; ++i) {
+				if(V[pos].nxt[i]) q.push(V[pos].nxt[i]);
+				else if(!pos || !V[pos].p) {
+					V[pos].SuffixLink = 0;
+				    V[pos].nxt[i] = V[0].nxt[i];
+				}
+				else {
+					int val = getval(V[pos].c);
+					int j = V[V[pos].p].SuffixLink;
+					V[pos].SuffixLink = V[j].nxt[val];
+					V[pos].nxt[i] = V[V[pos].SuffixLink].nxt[i];
+				}
             }
-            for(int i = 0; i < Alpha; ++i) if(V[pos].nxt[i]) q.push(V[pos].nxt[i]);
         }
     }
 
     void init(vector<string> &v) {
         V.resize(MaxM);
+		num = v.size();
         int id = 0;
         for(auto &s : v) {
             int pos = 0;
             for(char &c : s) {
                 int val = getval(c);
                 if(!V[pos].nxt[val]) {
-                    V[lst].p = pos;
-                    V[lst].c = c;
-                    V[pos].nxt[val] = lst++;
+                    V[lst].p = pos; V[lst].c = c; V[pos].nxt[val] = lst++;
                 }
                 pos = V[pos].nxt[val];
             }
             V[pos].end.emplace_back(id++);
-            //V[pos].bitmask.set(id++);
         }
         CreateSuffixLink();
     }
 
     vector<int> find(string& word) {
         int pos = 0;
-        vector<int> ans;
+        vector<int> ans(num, 0); 
         for(auto &c : word) {
             int val = getval(c);
-            while(pos > -1 && !V[pos].nxt[val]) pos = V[pos].SuffixLink;
-            if(pos == -1) pos = 0;
-            else pos = V[pos].nxt[val];
-
-            int auxpos = pos;
-            while(auxpos > -1) {
-                for(auto &i : V[pos].end) ans.emplace_back(i);
-                auxpos = V[auxpos].SuffixLink;
-            }
+            pos = V[pos].nxt[val];
+			V[pos].cnt++; //We count the times we reach each node, and then do a reverse propagation
+        }
+		for(;reversebfs.size();reversebfs.pop()) { 
+        	int	x = reversebfs.top(); //When we process x, we know we have been there V[x].cnt times;
+        	for(int i : V[x].end) ans[i] += V[x].cnt;
+        	if(V[x].SuffixLink != -1) V[V[x].SuffixLink].cnt += V[x].cnt; 
         }
         return ans;
     }
