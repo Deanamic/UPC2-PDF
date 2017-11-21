@@ -25,6 +25,10 @@ UPC: test-session.pdf
 	cd build && $(LATEXCMD) UPC.tex && $(LATEXCMD) UPC.tex
 	cp build/UPC.pdf UPC.pdf
 
+.PHONY: print
+print: UPC
+	cd build && $(LATEXCMD) print.tex && $(LATEXCMD) print.tex
+
 .PHONY: test
 test:
 	python2 fuzz-tests/fuzz.py
