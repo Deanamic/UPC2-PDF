@@ -1,70 +1,55 @@
 /**
- * Author: ???
- * License: ???
- * Description: NTT
+ * Author: Simon Lindholm
+ * Date: 2016-09-10
+ * License: CC0
+ * Source: based on KACTL's FFT
+ * Description: Number theoretic transform. Can be used for
+ * convolutions modulo specific nice primes
+ * of the form $2^a b+1$, where the convolution result has size at most $2^a$.
+ * For other primes/integers, use two different primes and combine with CRT.
+ * May return negative values.
  * Time: O(N \log N)
- * Status: ???
+ * Status: Somewhat tested
  */
-LL fpw(LL a, LL b, LL p){
-    LL r = 1; while(b){if(b&1) r=r*a%p; a=a*a%p; b/=2;} return r;
+#pragma once
+
+#include "ModPow.h"
+
+const ll mod = (119 << 23) + 1, root = 3; // = 998244353
+// For p < 2^30 there is also e.g. (5 << 25, 3), (7 << 26, 3),
+// (479 << 21, 3) and (483 << 21, 5). The last two are > 10^9.
+
+typedef vector<ll> vl;
+void ntt(ll* x, ll* temp, ll* roots, int N, int skip) {
+	if (N == 1) return;
+	int n2 = N/2;
+	ntt(x     , temp, roots, n2, skip*2);
+	ntt(x+skip, temp, roots, n2, skip*2);
+	rep(i,0,N) temp[i] = x[i*skip];
+	rep(i,0,n2) {
+		ll s = temp[2*i], t = temp[2*i+1] * roots[skip*i];
+		x[skip*i] = (s + t) % mod; x[skip*(i+n2)] = (s - t) % mod;
+	}
 }
-
-const LL MOD = 2013265921; const LL ROOT = 440564289; // MOD == 15*(1<<27)+1 (prime)
-vector<LL> e, er;                           				  // ROOT has order 2^27
-void FFT(vector<int> &x, LL d = 1){
-	int n = x.size();
-	if(n != e.size()){
-		e.resize(n); er.resize(n);
-		e[0] = 1; e[1] = fpw(ROOT,(1<<27)/n,MOD);
-		er[0] = 1; er[1] = fpw(e[1],MOD-2,MOD);
-		rep(i,2,n) e[i] = e[i-1] * e[1] % MOD;
-		rep(i,2,n) er[i] = er[i-1] * er[1] % MOD;
-	}
-	if(d == -1) swap(e, er);
-	rep(i,0,n){
-		int j=0; for(int k=1; k<n; k<<=1, j<<=1) if(k&i) j++;   //haxy i cheetosy
-		j>>=1; if(i<j) swap(x[i], x[j]);                        //haxy i cheetosy
-	}
-	int k=0;
-	while((1<<k)<n) k++;
-	for(int s=1; s<n; s<<=1){
-		--k;
-		for(int i=0; i<n; i+=2*s) rep(j,0,s){
-			LL u = x[i+j], v = x[i+j+s]*e[j<<k]%MOD;
-			x[i+j] = u+v-(u+v>=MOD?MOD:0);
-			x[i+j+s] = u-v+(u-v<0?MOD:0);
-		}
-
-	}
-	if(d == -1) swap(e, er);
+void ntt(vl& x, bool inv = false) {
+	ll e = modpow(root, (mod-1) / sz(x));
+	if (inv) e = modpow(e, mod-2);
+	vl roots(sz(x), 1), temp = roots;
+	rep(i,1,sz(x)) roots[i] = roots[i-1] * e % mod;
+	ntt(&x[0], &temp[0], &roots[0], sz(x), 1);
 }
-
-vector<int> convolution(vector<int> a, vector<int> b){
-	int n = 1; while(n < (int)max(a.size(), b.size())) n *= 2;
-	n *= 2; a.resize(n); b.resize(n);
-	FFT(a); FFT(b); rep(i,0,n) a[i] = (LL)a[i]*b[i]%MOD*fpw(n,MOD-2,MOD)%MOD; FFT(a, -1);
-	return a;
-}
-
-//2**13 : 8192 16384 32768
-vector<int> Mult(vector<int> a, vector<int> b) {
-	int exponent = 11; //change so that M/2^exp is as small as possible
-	int sqrt2 = 1 << (exponent);
-	int mod = 1e9 + 7; //has to be smaller than mod from ntt
-	vector<int> a1(a.size()), a2(a.size()), b1(b.size()), b2(b.size());
-	for(int i = 0; (int) i < a.size(); ++i) {
-		a2[i] = a[i]/sqrt2; a1[i] = a[i]%sqrt2;
+vl conv(vl a, vl b) {
+	int s = sz(a) + sz(b) - 1; if (s <= 0) return {};
+	int L = s > 1 ? 32 - __builtin_clz(s - 1) : 0, n = 1 << L;
+	if (s <= 200) { // (factor 10 optimization for |a|,|b| = 10)
+		vl c(s);
+		rep(i,0,sz(a)) rep(j,0,sz(b))
+			c[i + j] = (c[i + j] + a[i] * b[j]) % mod;
+		return c;
 	}
-	for(int i = 0; (int) i < b.size(); ++i) {
-		b2[i] = b[i]/sqrt2; b1[i] = b[i]%sqrt2;
-	}
-	vector<int> a1b1 = convolution(a1,b1), a1b2 = convolution(a1,b2), a2b1 = convolution(a2,b1), a2b2 = convolution(a2,b2);
-	vector<int> ans(a1b1.size());
-	for(int i = 0; i < (int) a1b1.size(); ++i) {
-		long long z = a1b1[i]%mod;
-		long long x = ((long long)(a1b2[i] + a2b1[i]) * (1LL << exponent)%mod)%mod;
-		long long y = ((long long)(a2b2[i]) * (1LL << (2*exponent))%mod)%mod;;
-		z += x; z %= mod; z += y; z %= mod; ans[i] = z;
-	}
-	return ans;
+	a.resize(n); ntt(a);
+	b.resize(n); ntt(b);
+	vl c(n); ll d = modpow(n, mod-2);
+	rep(i,0,n) c[i] = a[i] * b[i] % mod * d % mod;
+	ntt(c, true); c.resize(s); return c;
 }
