@@ -41,9 +41,18 @@
 			\item \texttt{c = x\&-x, r = x+c; (((r\^{}x) >> 2)/c) | r} is the next number after \texttt{x} with the same number of bits set.
 			\item \texttt{ rep(b,0,K) rep(i,0,(1 << K)) if (i \& 1 << b) D[i] += D[i\^{}(1 << b)]; } computes all sums of subsets.
 		\end{itemize}
-	\subsection{Pragmas}
+        \subsection{Pragmas}
 		\begin{itemize}
-			\item \lstinline{#pragma GCC optimize ("Ofast")} will make GCC auto-vectorize for loops and optimizes floating points better (assumes associativity and turns off denormals).
-			\item \lstinline{#pragma GCC target ("avx,avx2")} can double performance of vectorized code, but causes crashes on old machines.
-			\item \lstinline{#pragma GCC optimize ("trapv")} kills the program on integer overflows (but is really slow).
+        \item \lstinline{#pragma GCC optimize ("Ofast")} will make GCC auto-vectorize for loops and optimizes floating points better (assumes associativity and turns off denormals).
+        \item \lstinline{#pragma GCC target ("avx,avx2")} can double performance of vectorized code, but causes crashes on old machines.
+        \item \lstinline{#pragma GCC optimize ("trapv")} kills the program on integer overflows (but is really slow).
 		\end{itemize}
+        
+        \subsection{Random Problem Solutions}
+        \subsubsection{Strings}
+        \begin{itemize}
+        \item Distinct substrings in a word: Sum len(q) - len(suffixlink(q))
+        \item Sum of Lengths of distincst substrings: We count how many times a letter appears in distinct substrings, as all paths in automata ara different substrings we have 1 + number of paths, we can solve this by easy dp.  
+        \end{itemize}
+        
+        
