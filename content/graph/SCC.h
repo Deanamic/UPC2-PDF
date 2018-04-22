@@ -6,7 +6,7 @@
  * we can reach $u$ from $v$ and vice versa.
  * Time: O(E + V)
  * Status: Tested in a 2Sat Problem
- * Usage: Use addedge to addedges in a directed graph(will also add reverse edges), after calling Kosaraju comp will save the component number of each vertex ordered by topological order.
+ * Usage: Use addedge to add edges in a directed graph(will also add reverse edges), after calling Kosaraju comp will save the component number of each vertex ordered by topological order.
  */
 #pragma once
 

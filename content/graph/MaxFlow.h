@@ -4,7 +4,7 @@
  * Description: Returns maximum flow.
  * Time: O(V^2 * E) for general graphs. For unit capacities O(min(V^(2/3), E^(1/2)) * E). For maximum matching O(E*sqrt(V)))(bipartite unit weighted graf). It is generally very fast.
  * Status: Tested
- * Usage: To obtain a cut in the mincut problem one must bfs from the source. All the vertices reached from it using only edges with capacity > 0 are in the same cut
+ * Usage: To obtain a cut in the mincut problem one must bfs from the source. All the vertices reached from it using only edges with CAP > 0 are in the same cut
  */
 
 typedef long long ll;
@@ -23,8 +23,7 @@ VI d, act;
 bool bfs(int s, int t, VVI& adj, vector<Edge>& E) {
   queue<int> Q;
   d = VI(adj.size(), -1);
-  d[t] = 0;
-  Q.push(t);
+  d[t] = 0; Q.push(t);
   while (not Q.empty()) {
     int u = Q.front(); Q.pop();
     for (int i = 0; i < int(adj[u].size()); ++i) {
@@ -64,11 +63,8 @@ ll maxflow(int s, int t, VVI& adj, vector<Edge>& E) {
 }
 
 void addEdge(int u, int v, VVI& adj, vector<Edge>& E, ll cap){
-	Edge e;
-	e.u = u;
-	e.v = v;
-	e.cap[0] = cap;
-	e.cap[1] = 0;
+	Edge e; e.u = u; e.v = v;
+	e.cap[0] = cap; e.cap[1] = 0;
 	e.flow = 0;
 	adj[u].push_back(E.size());
 	adj[v].push_back(E.size());

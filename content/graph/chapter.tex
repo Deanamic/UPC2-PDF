@@ -1,17 +1,18 @@
 \chapter{Graph}
-\kactlimport{EulerianCycle.h}
-\kactlimport{SCC.h}
-\kactlimport{2sat.h}
-\kactlimport{BiconnectedComponents.h}
+\kactlimport{EulerianCycle.h} %tested
+\kactlimport{SCC.h} %tested
+\kactlimport{2sat.h} 
+\kactlimport{BiconnectedComponents.h} 
 \kactlimport{MinimalArborescence.h}
 \kactlimport{BinaryJumps.h}
 \kactlimport{LinkCutTree.h}
 \kactlimport{LengauerTarjan.h}
-\kactlimport{MaxFlow.h}
+\kactlimport{FastMaxFlow.h} %tested, not specified if graph directed
 \kactlimport{MaxflowMinCap.h}
 \kactlimport{MaxflowMinCost.h}
 \kactlimport{StableMarriage.h}
-\kactlimport{MaxWeightBipartiteMatching.h}
+% \kactlimport{MaxWeightBipartiteMatching.h}
+\kactlimport{MinCostBipartite.h} %Tested mincost and maxcost
 \kactlimport{globalmincut.h}
 \section{Karp's Minimum Mean Cycle}
 1. Initialize: $d_0(r) = 0$ and $\forall v\in V - \{r\}$,$d_0(v) = \infty$.\\

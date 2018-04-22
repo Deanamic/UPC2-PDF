@@ -1,14 +1,13 @@
 /**
  * Author: Dean
  * License: CC0
- * Description: returns de eulerian cycle/tour starting at u, cycle is in reverse order. If its a tour it must start at a vertex with odd degree. It is common to add edges between odd vertex to find a pseudo euler tour.
+ * Description: returns de eulerian cycle/tour starting at u. If its a tour it must start at a vertex with odd degree. It is common to add edges between odd vertex to find a pseudo euler tour.
  * Time: O(E)
- * Status: Undirected version is tested
- * Usage: Call find cycle with a vertex where a eulerian tour/cycle is possible, when adding edges make sure that two vertex have the same edge iff it is undirected.
+ * Status: Undirected Tested, Directed tested: http://codeforces.com/contest/508/problem/D
+ * Usage: adj should contain index of edge in the vector<edge>, if undirected add index to both rows of adj list. If directed make sure if it needs to be connected, difference between in/out edges. If it is a tour then u must be a vertex with odd degree, else it can be any edge.
  */
 #pragma once
 
-typedef vector<int> vi;
 struct edge{
 	int u, v;
 	bool used;
@@ -27,8 +26,7 @@ void Eulerdfs(int u, vi &nxt, vi &Euler, vector<edge> &E, const vector<vi> &adj)
 }
 
 vi Eulerian(int u, vector<edge> &E, const vector<vi> &adj) {
-	vi nxt (adj.size(),0);
-	vi Euler;
+	vi nxt (adj.size(), 0); vi Euler;
 	Eulerdfs(u, nxt, Euler, E, adj);
 	reverse(Euler.begin(), Euler.end());
 	return Euler;
