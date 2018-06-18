@@ -1,15 +1,15 @@
 /**
  * Author: Dean
  * Date: 18-06-18
+ * License: CC0
  * Source: Erichto Codeforces submission.
- * Description: Fast Fourier transform to multiply polynomials. Can be modified to multiply modulus x. Error around max_ans/1e15 or max_ans/2.5e18 for double/long double.
- * Time: O(N \log N)
+ * Description: Fast Fourier transform to multiply polynomials. Can be modified to multiply modulus x.
+ * Error around $\frac{max_ans}{1e15}$ or $\frac{maxans}{2.5e18}$ for double/long double.
+ * Time: $O(N\log N)$
  * Status: Tested
  */
 
-using LL = long long;
-#define FOR(i,a,b) for(int i = (a); i < (int)(b); ++i)
-using LD = double;
+using LD = double; //long double 2-2.5 times slower
 struct C {
   LD x,y;
   C operator *(const C& c) const { return C{x*c.x-y*c.y, x*c.y+y*c.x}; }
