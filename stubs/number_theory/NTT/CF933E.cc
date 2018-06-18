@@ -2,7 +2,7 @@
   Problem: https://codeforces.com/contest/993/problem/E
   Multiply takes 2 vectors (polynomials) and returns their product.
   The output doesn't exceed 1e18.
-  Benchmark: 202ms
+  Benchmark: 1887ms
 */
 
 #include "bits/stdc++.h"
