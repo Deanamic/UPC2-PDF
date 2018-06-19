@@ -32,8 +32,5 @@ void kosaraju(int n) {
     vector<int> m(n,0);
     for(int i = 0; i < n; ++i) if(!m[i]) dfs(i,0,m);
     m = vector<int>(n,0);
-    for(;st.size();st.pop()) {
-        int u = st.top();
-        if(!m[u]) dfs(u,1), c++;
-    }
+    for(;st.size();st.pop()) if(!m[st.top()]) dfs(st.top(),1), c++;
 }
