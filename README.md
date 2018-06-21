@@ -19,10 +19,9 @@ Stubs should hold mains to problems to check algorithm correctness
   - [ ] Biconnected components
   - [ ] Binary Jumps
   - [ ] Eularian Cycle
-  - [x] FastMaxFlow
+  - [x] Fast MaxFlow
   - [ ] LengauerTarjan
   - [ ] LinkCutTree
-  - [ ] MaxFlow
   - [ ] MaxWeightBipartiteMatching
   - [ ] MaxflowMinCap
   - [ ] MaxflwoMinCost
@@ -59,4 +58,4 @@ Stubs should hold mains to problems to check algorithm correctness
   - [ ] Z
 - various
 
-Credits to KTH Royal institute of institute and Simon Lindholm for the base template of the Latex, and to all contributors to the original UPC2 Notebook (Michael Sammler and Eric Valls)
+Credits to students of KTH Royal institute and Simon Lindholm for the base template of the Latex and many original source codes, and to all contributors to the original UPC2 Notebook (Michael Sammler and Eric Valls)

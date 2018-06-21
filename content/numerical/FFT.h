@@ -5,17 +5,12 @@
  * Source: Erichto Codeforces submission.
  * Description: Fast Fourier transform to multiply polynomials. Can be modified to multiply modulus x.
  * Error around $\frac{max_ans}{1e15}$ or $\frac{maxans}{2.5e18}$ for double/long double.
+ * Need to define a struct C with C.x and C.y of type LD, with * operation and += operation. 
  * Time: $O(N\log N)$
  * Status: Tested
  */
 
 using LD = double; //long double 2-2.5 times slower
-struct C {
-  LD x,y;
-  C operator *(const C& c) const { return C{x*c.x-y*c.y, x*c.y+y*c.x}; }
-  void operator +=(const C& c) { x+=c.x, y+=c.y;}
-};
-
 void FFT(vector<C> & a, int rev) {
 	const int N = a.size();
 	for(int i = 1, k = 0; i < N; ++i) {
