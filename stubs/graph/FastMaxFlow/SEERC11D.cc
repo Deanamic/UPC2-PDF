@@ -20,8 +20,7 @@ const ll oo = 0x3f3f3f3f3f3f3f3fLL;
 #define all(c) c.begin(), c.end()
 
 int main() {
-	cin.sync_with_stdio(0); cin.tie(0);
-	cin.exceptions(cin.failbit);
+  cin.sync_with_stdio(0); cin.tie(0);
   freopen("D.in", "r", stdin);
   ios_base::sync_with_stdio(false);
   cin.tie(0);
