@@ -2,7 +2,7 @@
  * Problem: SPOJ FASTFLOW: https://vn.spoj.com/submit/FFLOW/ https://www.spoj.com/problems/FASTFLOW/
  * Maxflow of a undirected graph, note that the capacities go both ways
  * Note that for some reason the cases in the normal spoj server are weaker. (You should get TL with a normal DINICS implementation for the vietnamese case.
- * Benchmark 0.13ms
+ * Benchmark 0.13s
  * You should provide a method with addEdge() which creates an undirected edge from u to v and specifies its cap, and maxflow which returns the max flow of the graph. The graph is represented in adj matrix G, and edge matrix arestes
  */
 #include<bits/stdc++.h>
@@ -21,8 +21,7 @@ const ll oo = 0x3f3f3f3f3f3f3f3fLL;
 #define all(c) c.begin(), c.end()
 
 int main() {
-	cin.sync_with_stdio(0); cin.tie(0);
-	cin.exceptions(cin.failbit);
+  cin.sync_with_stdio(0); cin.tie(0);
   int n,m;
   cin >> n >> m;
   int s = 0, t = n-1;
