@@ -1,10 +1,10 @@
 /**
  * Author: Dean
  * License: CC0
- * Description: Builds an Ahocorasick Trie, with suffix links
+ * Description: Builds an Ahocorasick Trie, with suffix links.
  * Time: O(n + m + z)
- * Status: Tested http://www.spoj.com/problems/STRMATCH/
- * Usage: This is an offline Algorithm, Pass the vector of patterns to Trie.init(), find function returns the number of times each string appears
+ * Status: Tested http://www.spoj.com/problems/STRMATCH/, https://codeforces.com/gym/101741/problem/K
+ * Usage: This is an offline Algorithm, Pass the vector of patterns to Trie.init(v), find function returns the number of times each string appears
  */
 
 const int MaxM = 200005;
@@ -16,8 +16,8 @@ struct Trie{
     struct node{
         int nxt[Alpha] = {}, p = -1;
         char c;
-        vector<int> end; //if 2 patterns must be different, change to int end = -1;
-        int SuffixLink;
+        vector<int> end; //if all patterns are different, can use flag instead
+        int SuffixLink = -1;
         int cnt = 0;
 	};
 	vector<node> V;
@@ -26,24 +26,21 @@ struct Trie{
 	inline int getval(char c) {
 		return c - first;
 	}
-
 	void CreateSuffixLink() {
 		queue<int> q;
 		for(q.push(0); q.size(); q.pop()) {
 			int pos = q.front();
 			reversebfs.push(pos);
+      if(!pos || !V[pos].p) V[pos].SuffixLink = 0;
+      else {
+        int val = getval(V[pos].c);
+        int j = V[V[pos].p].SuffixLink;
+        V[pos].SuffixLink = V[j].nxt[val];
+      }
 			for(int i = 0; i < Alpha; ++i) {
 				if(V[pos].nxt[i]) q.push(V[pos].nxt[i]);
-				else if(!pos || !V[pos].p) {
-					V[pos].SuffixLink = 0;
-					V[pos].nxt[i] = V[0].nxt[i];
-				}
-				else {
-					int val = getval(V[pos].c);
-					int j = V[V[pos].p].SuffixLink;
-					V[pos].SuffixLink = V[j].nxt[val];
-					V[pos].nxt[i] = V[V[pos].SuffixLink].nxt[i];
-				}
+				else if(!pos || !V[pos].p) 	V[pos].nxt[i] = V[0].nxt[i];
+				else V[pos].nxt[i] = V[V[pos].SuffixLink].nxt[i];
 			}
 		}
 	}
