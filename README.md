@@ -2,6 +2,8 @@
 Main branch under update, checkout 2017 branch for the version used in contest
 
 Stubs should hold mains to problems to check algorithm correctness
+## Things to Add
+- [ ] Centroid Decomposition
 
 ## Status
 - combinatorial
