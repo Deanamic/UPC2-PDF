@@ -9,6 +9,13 @@ Stubs should hold mains to problems to check algorithm correctness
 - [ ] Rolling Binomial
 - [ ] Binomial Mod Prime
 
+## Things UPC PDF has
+- [ ] gomory_hu (maxflow tree)
+- [ ] edge coloring
+- [ ] LCS between all substrings
+- [ ] negative edges maxflow mincost ??
+- [ ] Changes to maxflow mincap etc 
+- [ ] Fast Walsh-Hadamart transform ??
 ## Status
 - combinatorial
 - data-structures
@@ -26,7 +33,7 @@ Stubs should hold mains to problems to check algorithm correctness
   - [ ] Binary Jumps
   - [ ] Eularian Cycle
   - [x] Fast MaxFlow
-  - [ ] LengauerTarjan
+  - [x] LengauerTarjan/Dominator Tree
   - [ ] LinkCutTree
   - [ ] MaxWeightBipartiteMatching
   - [ ] MaxflowMinCap
@@ -40,7 +47,7 @@ Stubs should hold mains to problems to check algorithm correctness
 - number theory
 - numerical
   - [ ] Determinant
-  - [x] FTT
+  - [] FTT (Have to test for integers)
   - [x] NTT
   - [ ] Integrate
   - [ ] MatrixInverse
@@ -51,7 +58,7 @@ Stubs should hold mains to problems to check algorithm correctness
   - [ ] SolveLinear2
   - [ ] SolveLinearBinary
 - strings
-  - [ ] Ahocorasick
+  - [x] Ahocorasick
   - [ ] CYK
   - [ ] Hashing
   - [ ] KMP
