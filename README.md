@@ -5,6 +5,10 @@ Stubs should hold mains to problems to check algorithm correctness
 ## Things to Add
 - [ ] Centroid Decomposition
 
+## Things to Delete
+- [ ] Rolling Binomial
+- [ ] Binomial Mod Prime
+
 ## Status
 - combinatorial
 - data-structures

@@ -39,7 +39,7 @@ struct TwoSat {
 	void at_most_one(const vi& li) { // (optional)
 		if (sz(li) <= 1) return;
 		int cur = ~li[0];
-		rep(i,2,sz(li)) {
+		FOR(i,2,sz(li)) {
 			int next = add_var();
 			either(cur, ~li[i]);
 			either(cur, next);
@@ -52,7 +52,7 @@ struct TwoSat {
 	vi val, comp, z; int time = 0;
 	int dfs(int i) {
 		int low = val[i] = ++time, x; z.push_back(i);
-		trav(e, gr[i]) if (!comp[e])
+		for(auto e : gr[i]) if (!comp[e])
 			low = min(low, val[e] ?: dfs(e));
 		++time;
 		if (low == val[i]) do {
@@ -67,8 +67,8 @@ struct TwoSat {
 	bool solve() {
 		values.assign(N, -1);
 		val.assign(2*N, 0); comp = val;
-		rep(i,0,2*N) if (!comp[i]) dfs(i);
-		rep(i,0,N) if (comp[2*i] == comp[2*i+1]) return 0;
+		FOR(i,0,2*N) if (!comp[i]) dfs(i);
+		FOR(i,0,N) if (comp[2*i] == comp[2*i+1]) return 0;
 		return 1;
 	}
 };
