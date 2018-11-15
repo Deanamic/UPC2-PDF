@@ -9,7 +9,6 @@
 
 typedef long long ll;
 typedef vector<int> vi;
-typedef vector<vi> Vvi;
 const ll INF = 1000000000000000000LL;
 
 #define VEI(w,e) ((E[e].u == w) ? E[e].v : E[e].u)
@@ -20,7 +19,7 @@ struct Edge { int u, v; ll cap[2], flow; };
 
 vi d, act;
 
-bool bfs(int s, int t, Vvi& adj, vector<Edge>& E) {
+bool bfs(int s, int t, vector<vi>& adj, vector<Edge>& E) {
   queue<int> Q;
   d = vi(adj.size(), -1);
   d[t] = 0; Q.push(t);
@@ -37,7 +36,7 @@ bool bfs(int s, int t, Vvi& adj, vector<Edge>& E) {
   return d[s] >= 0;
 }
 
-ll dfs(int u,int t,ll bot,Vvi& adj,vector<Edge>& E) {
+ll dfs(int u,int t,ll bot,vector<vi>& adj,vector<Edge>& E) {
   if (u == t) return bot;
   for (; act[u] < int(adj[u].size()); ++act[u]) {
     int e = adj[u][act[u]];
@@ -52,7 +51,7 @@ ll dfs(int u,int t,ll bot,Vvi& adj,vector<Edge>& E) {
   return 0;
 }
 
-ll maxflow(int s, int t, Vvi& adj, vector<Edge>& E) {
+ll maxflow(int s, int t, vector<vi>& adj, vector<Edge>& E) {
   for (int i=0; i<int(E.size()); ++i) E[i].flow = 0;
   ll flow = 0, bot;
   while (bfs(s, t, adj, E)) {

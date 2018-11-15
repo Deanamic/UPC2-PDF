@@ -20,7 +20,7 @@ vi num, low; //Initialize to -1
 int act, bicos; //Put this to zero for every testcase
 stack<int> S;
 
-void dfs(int u, Vvi& adj, vector<Edge>& E, int p=-1){
+void dfs(int u, vector<vi>& adj, vector<Edge>& E, int p=-1){
   num[u] = low[u] = act++;
   for (int i = 0; i < adj[u].size(); ++i) {
     int v = E[adj[u][i]].v;
