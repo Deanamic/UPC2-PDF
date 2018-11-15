@@ -4,6 +4,7 @@ Main branch under update, checkout 2017 branch for the version used in contest
 Stubs should hold mains to problems to check algorithm correctness
 ## Things to Add
 - [ ] Centroid Decomposition
+- [ ] Better Structured MaxFlowMinCost?
 
 ## Things to Delete
 - [ ] Rolling Binomial
@@ -19,16 +20,17 @@ Stubs should hold mains to problems to check algorithm correctness
 ## Status
 - combinatorial
 - data-structures
-  - [ ] FenwickTree
-  - [ ] FenwidckTree2d
-  - [ ] LineContainer
+  - [x] FenwickTree
+  - [x] FenwidckTree2d
+  - [x] LineContainer
   - [ ] RMQ
-  - [ ] Segment Tree
+  - [ ] Segment Tree (temporaly removed)
   - [ ] Treap
-  - [ ] UnionFind
+  - [ ] UnionFind (temporaly removed)
 - geometry
 - graph
   - [ ] 2sat
+  - [x] ArticulationPointAndBridges
   - [ ] Biconnected components
   - [ ] Binary Jumps
   - [ ] Eularian Cycle

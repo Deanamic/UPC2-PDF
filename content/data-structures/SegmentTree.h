@@ -73,3 +73,7 @@ void example() {
 	sadd(1, 0, tot, a, b, -2);
 	ll res = squery(1, 0, tot, a);
 }
+
+struct SegmentTree {
+  
+}

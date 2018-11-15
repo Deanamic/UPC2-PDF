@@ -119,11 +119,18 @@
   \endgroup
 }
 \renewcommand*{\tilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
-
+\definecolor{key-color}{rgb}{0.8, 0.47, 0.196}
 % Configure source code listings
-\lstset{language=C++}
-\lstset{morekeywords={alignas,alignof}}
+\lstset{language=C++,
+                basicstyle=\ttfamily,
+                keywordstyle=\color{blue}\ttfamily,
+                stringstyle=\color{red}\ttfamily,
+                commentstyle=\color{green}\ttfamily,
+                morecomment=[l][\color{magenta}]{\#}
+}
 \lstset{frame=t}
+\lstset{morekeywords={FOR,;,vi,ll,alignas,alignof,vector,pii,LD}}
+\lstset{keywordstyle=\color{blue}}
 \lstset{tabsize=2}
 \lstset{showstringspaces=false}
 \lstset{breaklines=true}
