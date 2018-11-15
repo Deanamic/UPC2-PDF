@@ -17,6 +17,7 @@ Stubs should hold mains to problems to check algorithm correctness
 - [ ] negative edges maxflow mincost ??
 - [ ] Changes to maxflow mincap etc
 - [ ] Fast Walsh-Hadamart transform ??
+
 ## Status
 - combinatorial
 - data-structures
@@ -32,19 +33,19 @@ Stubs should hold mains to problems to check algorithm correctness
   - [ ] 2sat
   - [x] ArticulationPointAndBridges
   - [ ] Biconnected components
-  - [ ] Binary Jumps
-  - [ ] Eularian Cycle
+  - [x] Binary Jumps
+  - [x] Eularian Cycle
   - [x] Fast MaxFlow
   - [x] LengauerTarjan/Dominator Tree
   - [ ] LinkCutTree
-  - [ ] MaxWeightBipartiteMatching
-  - [ ] MaxflowMinCap
+  - [x] MaxWeightBipartiteMatching
+  - [x] MaxflowMinCap
   - [ ] MaxflwoMinCost
-  - [ ] MinCostBipartite
+  - [x] MinCostBipartite (removed)
   - [ ] MinimalArborescenses
-  - [ ] SCC
+  - [x] SCC
   - [ ] Stable Marriage
-  - [ ] Global Mincut
+  - [x] Global Mincut
 - math
 - number theory
 - numerical

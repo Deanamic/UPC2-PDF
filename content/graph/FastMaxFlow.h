@@ -49,7 +49,6 @@ ll dfs(int u, int t, ll bot, vector<vi>& adj,vector<Edge>& E) {
 }
 
 ll maxflow(int s, int t, vector<vi>& adj, vector<Edge>& E, int F = 0) {
-  FOR(i, 0, E.size())E[i].flow = 0;
   ll flow = 0, bot;
   for(int lim = (1<<F); lim >= 1;) {
     if(!bfs(s,t,adj,E,lim)) {
@@ -63,10 +62,8 @@ ll maxflow(int s, int t, vector<vi>& adj, vector<Edge>& E, int F = 0) {
 }
 
 inline void addEdge(int x, int y, ll c, vector<vi>& adj, vector <Edge> & E){
-  Edge e;
-  e.u = x; e.v = y;
+  Edge e; e.u = x; e.v = y; e.flow = 0;
   e.cap[0] = c; e.cap[1] = 0; //change if undirected edge
-  adj[x].push_back(E.size());
-  adj[y].push_back(E.size());
+  adj[x].push_back(E.size()); adj[y].push_back(E.size());
   E.push_back(e);
 }
