@@ -32,13 +32,13 @@ ll bfs(int s, int t, vector<vi>& adj, vector<Edge>& E, ll lim) {
   return (d[s] >= 0 ? lim : 0);
 }
 
-ll dfs(int u, int t, ll bot, vector<vi>& adj,vector<Edge>& E, int scale = 0, ll lim = 1) {
+ll dfs(int u, int t, ll bot, vector<vi>& adj,vector<Edge>& E) {
   if (bot == 0) return 0;
-  if (u == t) return (scale ? lim : bot);
+  if (u == t) return bot;
   for (; act[u] < int(adj[u].size()); ++act[u]) {
     int e = adj[u][act[u]];
-    if (CAP(u, e) >= lim and d[u] == d[VEI(u, e)] + 1) {
-      ll inc=dfs(VEI(u,e),t,min(bot,CAP(u,e)),adj,E,scale,lim);
+    if(d[u] == d[VEI(u, e)] + 1) {
+      ll inc=dfs(VEI(u,e),t,min(bot,CAP(u,e)),adj,E);
       if (inc) {
         ADD(u, e, inc);
         return inc;
@@ -48,7 +48,7 @@ ll dfs(int u, int t, ll bot, vector<vi>& adj,vector<Edge>& E, int scale = 0, ll 
   return 0;
 }
 
-ll maxflow(int s, int t, vector<vi>& adj, vector<Edge>& E, int scale = 0, int F = 0) {
+ll maxflow(int s, int t, vector<vi>& adj, vector<Edge>& E, int F = 0) {
   FOR(i, 0, E.size())E[i].flow = 0;
   ll flow = 0, bot;
   for(int lim = (1<<F); lim >= 1;) {
@@ -57,7 +57,7 @@ ll maxflow(int s, int t, vector<vi>& adj, vector<Edge>& E, int scale = 0, int F 
       continue;
     }
     act = vi(adj.size(), 0);
-    while (bot = dfs(s, t, oo, adj, E, scale, lim)) flow += bot;
+    while (bot = dfs(s, t, oo, adj, E)) flow += bot;
   }
   return flow;
 }

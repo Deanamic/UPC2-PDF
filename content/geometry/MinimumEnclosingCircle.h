@@ -13,7 +13,7 @@
 
 pair<double, P> mec2(vector<P>& S, P a, P b, int n) {
 	double hi = INFINITY, lo = -hi;
-	rep(i,0,n) {
+	FOR(i,0,n) {
 		auto si = (b-a).cross(S[i]-a);
 		if (si == 0) continue;
 		P m = ccCenter(a, b, S[i]);
@@ -29,7 +29,7 @@ pair<double, P> mec(vector<P>& S, P a, int n) {
 	random_shuffle(S.begin(), S.begin() + n);
 	P b = S[0], c = (a + b) / 2;
 	double r = (a - c).dist2();
-	rep(i,1,n) if ((S[i] - c).dist2() > r * (1 + 1e-8)) {
+	FOR(i,1,n) if ((S[i] - c).dist2() > r * (1 + 1e-8)) {
 		tie(r,c) = (n == sz(S) ?
 			mec(S, S[i], i) : mec2(S, a, S[i], i));
 	}

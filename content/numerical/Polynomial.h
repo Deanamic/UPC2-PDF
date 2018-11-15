@@ -14,7 +14,7 @@ struct Polynomial {
 		return val;
 	}
 	void diff() {
-		rep(i,1,n+1) a[i-1] = i*a[i];
+		FOR(i,1,n+1) a[i-1] = i*a[i];
 		a.pop_back(); --n;
 	}
 	void divroot(double x0) {

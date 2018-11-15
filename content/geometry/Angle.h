@@ -7,7 +7,7 @@
  *  a number of rotations around the origin). Useful for rotational sweeping.
  * Usage:
  *  vector<Angle> v = {w[0], w[0].t360() ...}; // sorted
- *  int j = 0; rep(i,0,n) {
+ *  int j = 0; FOR(i,0,n) {
  *    while (v[j] < v[i].t180()) ++j;
  *  } // sweeps j such that (j-i) represents the number of positively oriented triangles with vertices at 0 and i
  * Status: Used, works well

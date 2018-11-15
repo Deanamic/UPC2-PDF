@@ -24,6 +24,6 @@ int ternSearch(int a, int b, F f) {
 		else
 			b = mid+1;
 	}
-	rep(i,a+1,b+1) if (f(a) < f(i)) a = i; // (B)
+	FOR(i,a+1,b+1) if (f(a) < f(i)) a = i; // (B)
 	return a;
 }

@@ -30,8 +30,8 @@ struct HullIntersection {
 	HullIntersection(const vector<P>& ps) : N(sz(ps)), p(ps) {
 		p.insert(p.end(), all(ps));
 		int b = 0;
-		rep(i,1,N) if (P{p[i].y,p[i].x} < P{p[b].y, p[b].x}) b = i;
-		rep(i,0,N) {
+		FOR(i,1,N) if (P{p[i].y,p[i].x} < P{p[b].y, p[b].x}) b = i;
+		FOR(i,0,N) {
 			int f = (i + b) % N;
 			a.emplace_back(p[f+1] - p[f], f);
 		}

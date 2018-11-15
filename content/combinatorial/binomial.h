@@ -11,6 +11,6 @@
 ll choose(int n, int k) {
 	ll c = 1, to = min(k, n-k);
 	if (to < 0) return 0;
-	rep(i,0,to) c = c * (n - i) / (i + 1);
+	FOR(i,0,to) c = c * (n - i) / (i + 1);
 	return c;
 }
