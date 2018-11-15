@@ -50,7 +50,7 @@ Stubs should hold mains to problems to check algorithm correctness
 - number theory
 - numerical
   - [ ] Determinant
-  - [ ] FTT (Have to test for integers)
+  - [x] FTT  
   - [x] NTT
   - [ ] Integrate
   - [ ] MatrixInverse

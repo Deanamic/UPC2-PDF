@@ -2,15 +2,25 @@
  * Author: Dean
  * Date: 18-06-18
  * License: CC0
- * Source: Erichto Codeforces submission.
+ * Source: Errichto Codeforces submission.
  * Description: Fast Fourier transform to multiply polynomials. Can be modified to multiply modulus x.
- * Error around $\frac{max_ans}{1e15}$ or $\frac{maxans}{2.5e18}$ for double/long double.
- * Need to define a struct C with C.x and C.y of type LD, with * operation and += operation. 
+ * Error around $\frac{max_ans}{1e15}$ or $\frac{maxans}{2.5e18}$ for double/long double. 
  * Time: $O(N\log N)$
  * Status: Tested
  */
 
+
 using LD = double; //long double 2-2.5 times slower
+
+struct C { LD x,y;
+  C operator * (const C& C1) const {
+    return C{x*C1.x - y*C1.y, x*C1.y + y*C1.x};
+  }
+  void operator += (const C& C1) {
+    x += C1.x, y += C1.y;
+  }
+};
+
 void FFT(vector<C> & a, int rev) {
 	const int N = a.size();
 	for(int i = 1, k = 0; i < N; ++i) {
@@ -38,7 +48,7 @@ void FFT(vector<C> & a, int rev) {
 }
 
 template<typename T> //add ll mod to header
-vector<T> PolyMul(const vector<T> & a, const vector<T> & b, bool split = false) {
+vector<T> PolyMul(const vector<T> & a, const vector<T> & b, /*ll mod,*/ bool split = false) {
 	if(a.empty() || b.empty()) return {};
 	int n = a.size() + b.size();
 	vector<T> ans(n - 1);
@@ -55,8 +65,8 @@ vector<T> PolyMul(const vector<T> & a, const vector<T> & b, bool split = false) 
 		FFT(in,  1);
 		FOR(i, 0, n) done[i] = speed(in, i, 0) * speed(in, i, 1);
 		FFT(done, -1);
-		FOR(i, 0, ans.size()) ans[i] = is_integral<T>::value ?
-      llround(done[i].x) : done[i].x; //ans  %= mod;
+		FOR(i, 0, ans.size()) {ans[i] = is_integral<T>::value ?
+        llround(done[i].x) : done[i].x;} //ans[i] %= mod;
 	//FOR(i,0,ans.size())err=max(err,abs(done[i].x-ans[i]));
 	}
 	else { // Split big INTEGERS into pairs a1*M+a2,
@@ -69,13 +79,13 @@ vector<T> PolyMul(const vector<T> & a, const vector<T> & b, bool split = false) 
 			FFT(t[x], 1);
 		}
 		T mul = 1;
-		for(int s = 0; s < 3; ++s, mul *= M) { //mul %= mod;
+		for(int s = 0; s < 3; ++s, mul *= M /* ,mul%= mod*/) {
 			vector<C> prod(n);
 			FOR(x, 0, 2) FOR(y, 0, 2) if(x + y == s) FOR(i, 0, n)
 				prod[i] += speed(t[0], i, x) * speed(t[1], i, y);
 			FFT(prod, -1);
 			FOR(i, 0, ans.size()) ans[i] += llround(prod[i].x)*mul;
-                          //ans[i] += (llround(prod[i].x)%mod)*mul, ans[i] %= mod;
+                          //ans[i] += (llround(prod[i].x)%mod)*mul, ans[i] %= mod; //(substitute)
 		}
 	}
 	return ans;
