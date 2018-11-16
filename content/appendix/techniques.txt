@@ -6,16 +6,16 @@ Algorithm analysis
 	Amortized time complexity
 Greedy algorithm
 	Scheduling
-	Max contigous subvector sum
+	Max contiguous subvector sum
 	Invariants
 	Huffman encoding
-Graph teory
+Graph theory
 	Dynamic graphs (extra book-keeping)
 	Breadth first search
 	Depth first search
 	* Normal trees / DFS trees
-	Dijkstra's algoritm
-	MST: Prim's algoritm
+	Dijkstra's algorithm
+	MST: Prim's algorithm
 	Bellman-Ford
 	Konig's theorem and vertex cover
 	Min-cost max flow
@@ -26,16 +26,16 @@ Graph teory
 	Hall's marriage theorem
 	Graphical sequences
 	Floyd-Warshall
-	Eulercykler
+	Euler cycles
 	Flow networks
-	* Augumenting paths
+	* Augmenting paths
 	* Edmonds-Karp
 	Bipartite matching
 	Min. path cover
 	Topological sorting
 	Strongly connected components
 	2-SAT
-	Cutvertices, cutedges och biconnected components
+	Cut vertices, cut-edges and biconnected components
 	Edge coloring
 	* Trees
 	Vertex coloring
@@ -44,7 +44,7 @@ Graph teory
 	Diameter and centroid
 	K'th shortest path
 	Shortest cycle
-Dynamic programmering
+Dynamic programming
 	Knapsack
 	Coin change
 	Longest common subsequence
@@ -71,13 +71,13 @@ Combinatorics
 Number theory
 	Integer parts
 	Divisibility
-	Euklidean algorithm
+	Euclidean algorithm
 	Modular arithmetic
 	* Modular multiplication
 	* Modular inverses
 	* Modular exponentiation by squaring
 	Chinese remainder theorem
-	Fermat's small theorem
+	Fermat's little theorem
 	Euler's theorem
 	Phi function
 	Frobenius number
@@ -134,7 +134,7 @@ Strings
 	Palindrome subsequences
 	Knuth-Morris-Pratt
 	Tries
-	Rolling polynom hashes
+	Rolling polynomial hashes
 	Suffix array
 	Suffix tree
 	Aho-Corasick

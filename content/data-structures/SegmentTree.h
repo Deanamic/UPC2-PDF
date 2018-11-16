@@ -1,79 +1,30 @@
 /**
- * Author: Michael Sammler
- * Date: 2017-11-06
+ * Author: Lucian Bicsi
+ * Date: 2017-10-31
  * License: CC0
  * Source: folklore
- * Description: Some useful functions for segment trees
- * Time: $O(\log N)$
+ * Description: Zero-indexed max-tree. Bounds are inclusive to the left and exclusive to the right. Can be changed by modifying T, LOW and f.
+ * Time: O(\log N)
+ * Status: fuzz-tested
  */
 #pragma once
 
-const ll tot = (1 << 19); // bigger than N
-ll N = 1; // ...
-ll minv[tot * 2];
-ll lazy[tot * 2];
-
-void init(ll x, ll l, ll r) {
-	if(l >= N) return;
-	if(r - l <= 1) {
-		minv[x] = 1; // ...
-		lazy[x] = 0;
-		return;
+struct Tree {
+	typedef int T;
+	static const T LOW = INT_MIN;
+	T f(T a, T b) { return max(a, b); } // (any associative fn)
+	vector<T> s; int n;
+	Tree(int n = 0, T def = 0) : s(2*n, def), n(n) {}
+	void update(int pos, T val) {
+		for (s[pos += n] = val; pos > 1; pos /= 2)
+			s[pos / 2] = f(s[pos & ~1], s[pos | 1]);
 	}
-	init(2*x, l, (l+r)/2);
-	init(2*x+1, (l+r)/2, r);
-	minv[x] = min(minv[2*x], minv[2*x+1]);
-	lazy[x] = 0;
-}
-
-// propagates lazy, msut be called before recursing
-void prop(ll x, ll l, ll r) {
-	if(r - l <= 1) return;
-	minv[2*x] += lazy[x];
-	lazy[2*x] += lazy[x];
-	minv[2*x+1] += lazy[x];
-	lazy[2*x+1] += lazy[x];
-	lazy[x] = 0;
-}
-
-// add v to [a, b)
-void sadd(ll x, ll l, ll r, ll a, ll b, ll v) {
-	if(b <= l || r <= a) return;
-	if(a <= l && r <= b) {
-		minv[x] += v;
-		lazy[x] += v;
-		return;
+	T query(int b, int e) { // query [b, e)
+		T ra = LOW, rb = LOW;
+		for (b += n, e += n; b < e; b /= 2, e /= 2) {
+			if (b % 2) ra = f(ra, s[b++]);
+			if (e % 2) rb = f(s[--e], rb);
+		}
+		return f(ra, rb);
 	}
-	prop(x, l, r);
-	sadd(2*x, l, (l+r)/2, a, b, v);
-	sadd(2*x+1, (l+r)/2, r, a, b, v);
-	minv[x] = min(minv[2*x], minv[2*x+1]);
-}
-
-// finds the lowest value res, such that all values
-// in [res, end) are >= 2 (condition can be adjusted)
-ll squery(ll x, ll l, ll r, ll end) {
-	if(end <= l) return end;
-	if(minv[x] >= 2) return l; // ...
-	if(r - l <= 1) {
-		return r;
-	}
-	prop(x, l, r);
-	if(minv[2*x+1] >= 2) { // ...
-		return squery(2*x, l, (l+r)/2, end);
-	}
-	ll rend = squery(2*x+1, (l+r)/2, r, end);
-	if(rend > (l+r)/2) return rend;
-	return squery(2*x, l, (l+r)/2, end);
-}
-
-void example() {
-	ll a = 0, b = 1;
-	init(1, 0, tot);
-	sadd(1, 0, tot, a, b, -2);
-	ll res = squery(1, 0, tot, a);
-}
-
-struct SegmentTree {
-  
-}
+};

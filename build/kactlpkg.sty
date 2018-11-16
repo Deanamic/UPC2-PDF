@@ -18,23 +18,61 @@
 \usepackage{paralist}                   % For compact enumerations
 \usepackage[inline]{enumitem}           % For horizontal lists
 \usepackage[parfill]{parskip}           % For compact enumerations
-\usepackage{etoolbox}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[normalem]{ulem}
 
+% Config commands
+\newcommand{\subtitle}[1]{
+	\def\@subtitle{#1}
+}
+\newcommand{\team}[2]{
+	\def\@teamname{#1}
+	\def\@teammembers{#2}
+}
+\newcommand{\contest}[2]{
+	\def\@contestname{#1}
+	\def\@contestdate{#2}
+}
+\newcommand{\university}[3]{
+	\def\@unishort{#1}
+	\def\@unilong{#2}
+	\def\@unilogo{#3}
+}
+
+% Some default config
+\subtitle{{\tiny new}KACTL}
+\title{KTH ACM Contest Template Library}
+
 \def\today{\number\year-\ifthenelse{\number\month<10}{0}{}\number\month-\ifthenelse{\number\day<10}{0}{}\number\day} % Defines \today as YYYY-MM-DD
 
-\AtBeginDocument{}
-\AtEndDocument{}
+\renewcommand{\maketitle}[2]{
+	\begin{center}
+		{\LARGE \@title}\\
+		{\Large \@subtitle{} version #2}\\[0.1cm]
+		{\LARGE \textsc{#1}}
+	\end{center}
+}
 
-\newcommand{\thelistings}{}
+% Remove temp files from old failed runs
+\AtBeginDocument{\immediate\write18{rm -f header.tmp}}
+\AtEndDocument{\immediate\write18{rm -f header.tmp}\immediate\write18{rm -f header2.tmp}\immediate\write18{rm -f kactl.tmp}}
+
+% Include a list of source files at the top of every page. For the purpose
+% of recording those, we use eTeX marks. (We can't just append data directly to
+% the header, because TeX outputs pages asynchronously, noticably so when
+% multicol is in use.) There is no command for getting all marks set on a page,
+% so we take only the last one and include all non-included files up until that
+% one. Most of the time \splitbotmark will give us the right mark, but in rare
+% cases things fall down and we try to make the best of things by falling back
+% to \botmark. Also, since LaTeX is terrible at string manipulation, we do all
+% actual processing in Python, stashing global state in header.tmp.
+\newmarks\hdrmark
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \headheight 25pt
-% \lhead{Universitat Politècnica de Catalunya - UPC 2}
-\chead{\hspace{3mm} \thelistings \gdef\thelistings{}}
-% \rhead{\thepage}
-\lhead{}\rhead{}
+\lhead{\@unishort}
+\chead{\hspace{3mm}\textbf{\immediate\write18{python2 kactlprocessor.py --print-header "\splitbotmarks\hdrmark|\botmarks\hdrmark" -o header2.tmp}\immediate\input{header2.tmp}}}
+\rhead{\thepage}
 %\lhead{}\chead{\thepage}\rhead{}
 \lfoot{}\cfoot{}\rfoot{}
 \fancyheadoffset{0pt}
@@ -119,18 +157,11 @@
   \endgroup
 }
 \renewcommand*{\tilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
-\definecolor{key-color}{rgb}{0.8, 0.47, 0.196}
+
 % Configure source code listings
-\lstset{language=C++,
-                basicstyle=\ttfamily,
-                keywordstyle=\color{blue}\ttfamily,
-                stringstyle=\color{red}\ttfamily,
-                commentstyle=\color{green}\ttfamily,
-                morecomment=[l][\color{magenta}]{\#}
-}
+\lstset{language=C++}
+\lstset{morekeywords={alignas,alignof}}
 \lstset{frame=t}
-\lstset{morekeywords={FOR,;,vi,ll,alignas,alignof,vector,pii,LD}}
-\lstset{keywordstyle=\color{blue}}
 \lstset{tabsize=2}
 \lstset{showstringspaces=false}
 \lstset{breaklines=true}
@@ -151,30 +182,20 @@
 
 \pdfsuppresswarningpagegroup=1
 
-\newcommand{\edition}[1]{
-	\def\@edition{#1}
-}
-% \edition{}
-\newcommand{\subtitle}[1]{
-	\def\@subtitle{#1}
-}
-\subtitle{{\tiny new}PDF}
-\title{UPC ACM Contest Template Library}
-
-\newcommand{\maketeampage}[4]{
+\newcommand{\maketeampage}{
 	\pagestyle{empty}
 	\begin{center}
 		\strut % Magic
 		\vspace{3cm}\\
-		\includegraphics[width=3cm]{UPC-logo}\\
-		{\Huge Universitat Polit\`ecnica de Catalunya\\}
-		{\fontsize{60}{60}\selectfont #1\\}
+		\includegraphics[width=3cm]{\@unilogo}\\
+		{\Huge \@unilong\\}
+		{\fontsize{60}{60}\selectfont \@teamname\\}
 		\vspace{0.5cm}
-		{\Large #2\\}
+		{\Large \@teammembers\\}
 		\vfill
-		{\huge #3}\\
+		{\huge \@contestname}\\
 		\vspace{0.5cm}
-		{\Large #4}\\
+		{\Large \@contestdate}\\
 		\vspace{1cm}
 	\end{center}
 	\clearpage
@@ -190,6 +211,18 @@
 			\addcontentsline{ptc}{section}{\texttt{#1}\hspace{0.2em}}
 		\fi
 	}
+	\marks\hdrmark{#1}
+}
+
+% Like \needspace, except with flush bottoms.
+\newcommand{\myneedspace}[1]{%
+  \begingroup
+    \setlength{\dimen@}{#1}%
+    \vskip\dimen@
+    \penalty 9999%
+    \vskip -\dimen@
+    \vskip\z@skip
+  \endgroup
 }
 
 \newcommand{\kactlimport}[2][]{ % Using empty default parameter
@@ -199,6 +232,8 @@
 	\setboolean{hastime}{false}
 	\setboolean{hasmemory}{false}
 	\setboolean{hasleftcaption}{false}
+	\myneedspace{3\baselineskip}
+	\penalty-100
 	#2
 	\immediate\write18{rm -f kactl.tmp} % Don't include old kactl.tmp on failure.
 	\immediate\write18{python2 kactlprocessor.py -i "\@kactldir/#2" -o kactl.tmp #1}
@@ -227,14 +262,6 @@
 
 \newcommand{\kactlwarning}[1]{
 	\PackageWarning{kactlpkg}{#1}
-}
-
-\renewcommand{\maketitle}{
-	\begin{center}
-		{\LARGE \@title}\\
-		{\Large \@subtitle{} version \@date}\\[0.1cm]
-		{\LARGE \textsc{\@edition}}
-	\end{center}
 }
 
 \newboolean{hasleftcaption}
@@ -300,4 +327,4 @@
 
 \newcommand{\bigo}[1] {\ensuremath{\mathcal{O} \left( #1 \right)}}
 
-\newcommand{\hardcolumnbreak}{\vfill\ \columnbreak}
+\newcommand{\hardcolumnbreak}{\vfill\null\columnbreak}

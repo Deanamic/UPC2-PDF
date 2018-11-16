@@ -2,8 +2,8 @@
  * Author: Dean
  * Date: 2017-11-12
  * Source: ??
- * Description: Computes the prefix function
- * status: tested
+ * Description: Computes the longest prefix which ends at the i-th position
+ * Status: tested
  */
 
 vector<int> Z(string &s) {
