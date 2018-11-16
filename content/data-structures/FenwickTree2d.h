@@ -9,12 +9,12 @@
  */
 #pragma once
 
-struct FT2 {
+struct FT2D {
     ll R, C;
     vector<vector<ll>> tree;
 
 	// note r+1 & c+1
-    NumMatrix(ll r, ll c) : R(r), C(c), tree(r+1, vector<ll>(c+1)) { }
+    FT2D(ll r, ll c) : R(r), C(c), tree(r+1, vector<ll>(c+1)) { }
 
     void update(int row, int col, int diff) {
         for(int i = row+1;i<=R;i += (i & -i))

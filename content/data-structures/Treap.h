@@ -68,7 +68,7 @@ Tree* insert(Tree* t, Tree* n) {
 // Devuelve cuantos hay <= x
 int count(Tree* t, int x) {
   if (!t) return 0;
-  if (t->x <= x) 
+  if (t->x <= x)
     return 1 + card(t->left) + count(t->right, x);
   else return count(t->left, x);
 }
@@ -89,23 +89,4 @@ Tree* update_node(Tree* &root, Tree* node, ll nx) {
     root = m;
   }
   return insert(root, node);
-}
-
-int main() {
-  int n; cin >> n;
-  vector<Tree*> nodes(n);
-  Tree* treap = nullptr;
-  for (int i = 0; i < n; ++i) {
-    ll x; cin >> x;
-    Tree* n = new Tree(x);
-    update(n);
-    nodes[i] = n;
-    treap = insert(treap, n);
-  }
-  int m; cin >> m; // Update k-th node with value x
-  for (int i = 0; i < m; ++i) {
-    int k; ll x; cin >> k >> x;
-    Tree* t = nodes[k-1];
-    treap = update_node(treap, t, x);
-  }
 }

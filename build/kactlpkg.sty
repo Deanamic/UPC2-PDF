@@ -159,8 +159,9 @@
 \renewcommand*{\tilde}{\raise.17ex\hbox{$\scriptstyle\mathtt{\sim}$}}
 
 % Configure source code listings
+
 \lstset{language=C++}
-\lstset{morekeywords={alignas,alignof}}
+\lstset{morekeywords={FOR,;,vi,ll,alignas,alignof,vector,pii,LD}}
 \lstset{frame=t}
 \lstset{tabsize=2}
 \lstset{showstringspaces=false}
@@ -173,6 +174,14 @@
 \lstset{inputencoding=utf8}
 \lstset{aboveskip=3pt}
 \lstset{belowskip=2pt}
+\definecolor{listinggray}{gray}{0.9}
+\definecolor{lbcolor}{rgb}{0.9,0.9,0.9}
+\lstset{
+  keywordstyle=\color[rgb]{0,0,1},
+  commentstyle=\color[rgb]{0.026,0.112,0.095},
+  stringstyle=\color[rgb]{0.627,0.126,0.941},
+  numberstyle=\color[rgb]{0.205, 0.142, 0.73},
+}
 
 \lstdefinelanguage{raw}{} % Raw language, no keywords.
 
