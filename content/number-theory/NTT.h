@@ -10,9 +10,7 @@
  * Time: O(N \log N)
  * Status: Tested
  */
-
 #pragma once
-
 #include "ModPow.h"
 
 const ll mod[] = {(119<<23)+1, (5<<25)+1, 7<<26|1, 479<<21|1, 483<<21|1};

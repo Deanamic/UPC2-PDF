@@ -27,9 +27,11 @@ Check KTH pdf again for new additions, and changes in compilation
   - [x] FenwickTree
   - [x] FenwidckTree2d
   - [x] LineContainer
-  - [ ] RMQ
+  - [x] RMQ
+  - [x] OrderedSet
+  - [ ] HashMap
   - [ ] Segment Tree (temporaly removed)
-  - [ ] Treap
+  - [ ] Treap (need to understand)
   - [ ] UnionFind (temporaly removed)
 - geometry
 - graph
@@ -40,41 +42,43 @@ Check KTH pdf again for new additions, and changes in compilation
   - [x] Eularian Cycle
   - [x] Fast MaxFlow
   - [x] LengauerTarjan/Dominator Tree
-  - [ ] LinkCutTree
+  - [ ] LinkCutTree (need to understand)
   - [x] MaxWeightBipartiteMatching
   - [x] MaxflowMinCap
-  - [ ] MaxflwoMinCost
+  - [ ] MaxflowMinCost (refactor?)
   - [x] MinCostBipartite (removed)
-  - [ ] MinimalArborescenses
-  - [x] SCC
+  - [ ] MinimalArborescenses (need to understand)
+  - [ ] SCC (Fix to struct)
   - [ ] Stable Marriage
   - [x] Global Mincut
 - math
 - number theory
 - numerical
-  - [ ] Determinant
-  - [x] FTT  
+  - [x] Determinant
+  - [x] FTT
   - [x] NTT
-  - [ ] Integrate
-  - [ ] MatrixInverse
-  - [ ] PolyInterpolate
-  - [ ] PolyRoots
-  - [ ] Simplex
-  - [ ] SolveLinear
-  - [ ] SolveLinear2
-  - [ ] SolveLinearBinary
+  - [x] Integrate
+  - [x] MatrixInverse
+  - [x] PolyInterpolate
+  - [x] PolyRoots
+  - [x] Simplex
+  - [x] SolveLinear
+  - [x] SolveLinear2
+  - [ ] SolveLinearBinary (add base finding)
 - strings
   - [x] Ahocorasick
   - [ ] CYK
   - [ ] Hashing
   - [ ] KMP
   - [ ] Manacher
-  - [ ] MinRotation
-  - [ ] Palindromic Tree
+  - [ ] MinRotation (understand)
+  - [ ] Palindromic Tree (understand)
   - [ ] Suffix Array
-  - [ ] Suffix Automaton
-  - [ ] Suffix Tree
+  - [ ] Suffix Automaton (understand)
+  - [ ] Suffix Tree (understand)
   - [ ] Z
 - various
+  - [ ] Understand DP optimizations
+  - [ ] Delete Java?
 
 Credits to students of KTH Royal institute and Simon Lindholm for the base template of the Latex and many original source codes, and to all contributors to the original UPC2 Notebook (Michael Sammler and Eric Valls)

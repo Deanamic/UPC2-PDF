@@ -4,7 +4,7 @@
  * License: CC0
  * Source: Errichto Codeforces submission.
  * Description: Fast Fourier transform to multiply polynomials. Can be modified to multiply modulus x.
- * Error around $\frac{max_ans}{1e15}$ or $\frac{maxans}{2.5e18}$ for double/long double. 
+ * Error around $\frac{max_{ans}}{1e15}$ or $\frac{max_{ans}}{2.5e18}$ for double/long double.
  * Time: $O(N\log N)$
  * Status: Tested
  */

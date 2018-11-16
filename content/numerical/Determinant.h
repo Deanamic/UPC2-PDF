@@ -25,8 +25,7 @@ double det(vector<vector<double>>& a) {
 	return res;
 }
 
-const ll mod = 1000000009;
-ll det(vector<vector<ll>>& a) {
+ll det(vector<vector<ll>>& a, ll mod) {
 	int n = sz(a); ll ans = 1;
 	FOR(i,0,n) {
 		FOR(j,i+1,n) {
