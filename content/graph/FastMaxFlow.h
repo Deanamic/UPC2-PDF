@@ -4,8 +4,8 @@
  * Description: Returns maximum flow.
  * Time: O(V * E * log(f)) where f is the maxflow for general graphs. It is generally very fast.
  * Status: Tested
- * Usage: F should be log(f). Set cap[1] to c if it is undirected. To obtain a cut in the mincut problem one must bfs from the source. All the vertices reached from it using only edges with CAP > 0 are in the same cut.
- * If maxflow is called without the last 2 parameters it will run a normal dinics in O(V^2*E)
+ * Usage: F should be log(f). Set rc to c if it is undirected. To obtain a cut in the mincut problem one must bfs from the source. All the vertices reached from it using only edges with CAP > 0 are in the same cut. Do not reset edges when using min cap, do reset when reusing graph
+ * If maxflow is called without the last parameter it will run a normal dinics in O(V^2*E)
  */
 
 #define VEI(w,e) (E[e].u ^ E[e].v ^ w)
