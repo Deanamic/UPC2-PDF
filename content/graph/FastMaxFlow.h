@@ -15,7 +15,7 @@
 struct Edge{ int u, v; ll cap[2], flow; };
 vi d, act;
 
-ll bfs(int s, int t, vector<vi>& adj, vector<Edge>& E, ll lim) {
+bool bfs(int s, int t, vector<vi>& adj, vector<Edge>& E, ll lim) {
   queue<int> Q;
   d = vi(adj.size(), -1);
   d[t] = 0; Q.push(t);
@@ -29,7 +29,7 @@ ll bfs(int s, int t, vector<vi>& adj, vector<Edge>& E, ll lim) {
       }
     }
   }
-  return (d[s] >= 0 ? lim : 0);
+  return d[s] >= 0;
 }
 
 ll dfs(int u, int t, ll bot, vector<vi>& adj,vector<Edge>& E) {
@@ -49,21 +49,20 @@ ll dfs(int u, int t, ll bot, vector<vi>& adj,vector<Edge>& E) {
 }
 
 ll maxflow(int s, int t, vector<vi>& adj, vector<Edge>& E, int F = 0) {
+  //trav(e, E) e.flow = 0; reset
   ll flow = 0, bot;
-  for(int lim = (1<<F); lim >= 1;) {
-    if(!bfs(s,t,adj,E,lim)) {
-      lim >>= 1;
-      continue;
+  for(int lim = (1<<F); lim >= 1;lim>>=1) {
+    while(bfs(s,t,adj,E,lim)) {
+      act = vi(adj.size(), 0);
+      while (bot = dfs(s, t, oo, adj, E)) flow += bot;
     }
-    act = vi(adj.size(), 0);
-    while (bot = dfs(s, t, oo, adj, E)) flow += bot;
   }
   return flow;
 }
 
-inline void addEdge(int x, int y, ll c, vector<vi>& adj, vector <Edge> & E){
+inline void addEdge(int x, int y, vector<vi>& adj, vector <Edge> & E, ll c, ll rc = 0){
   Edge e; e.u = x; e.v = y; e.flow = 0;
-  e.cap[0] = c; e.cap[1] = 0; //change if undirected edge
-  adj[x].push_back(E.size()); adj[y].push_back(E.size());
+  e.cap[0] = c; e.cap[1] = rc;
+  adj[x].push_back(sz(E)); adj[y].push_back(sz(E));
   E.push_back(e);
 }
