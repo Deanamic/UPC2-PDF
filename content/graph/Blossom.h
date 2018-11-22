@@ -2,9 +2,9 @@
  * Author: Dean
  * License: CC0
  * Description: Computes a MaxMatching on a graph
- * Usage: pass x, y the number of vertices and edges, and N, M shoudl be large enough (N >= 
+ * Usage:Pass x, y the number of vertices and edges, mat[i] provides the matching or is 0 if unmatched, out prints in nice format.
  * Source: uoj.ac submission
- * Status: Tested
+ * Status: Tested on uoj and timus
  */
 #include<bits/stdc++.h>
 using namespace std;
