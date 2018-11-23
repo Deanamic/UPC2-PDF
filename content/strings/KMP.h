@@ -1,22 +1,17 @@
 /**
- * Author: ???
- * Source: PDF UPC
- * License: ???
- * Description: string matching
- * Time: $O(P + T)$ where $P$ is the length of the pattern, $T$ is length of the text
+ * Author: Dean
+ * Source: Dean
+ * License: CC0
+ * Description: returns a 1 indexed array containing the length of the suffix which matches the prefix.
+ * Time: $O(|S|)$
  * Status: Tested
  */
-string s, p; cin >> s >> p;
-vector<int> pi(p.size() + 1, 0);
-int k = 0;
-for (int i = 2; i <= p.size(); ++i) {
-	while (k > 0 and p[i - 1] != p[k]) k = pi[k];
-	if (p[i - 1] == p[k]) ++k;
-	pi[i] = k;
-}
-k = 0;
-for (int i = 0; i < s.size(); ++i) {
-	while (k > 0 and s[i] != p[k]) k = pi[k];
-	if (p[k] == s[i]) ++k;
-	if (k == p.size()) k = pi[k]; //Matching
+
+void KMP(vi& kmp, string& s) {
+  kmp.assign(sz(s) + 1, -1);
+  for (int i = st; i < s.size(); i++){
+    int j = kmp[i];
+    while(j >= 0 && s[i] != s[j]) j = kmp[j];
+    kmp[i+1] = j + 1;
+  }
 }

@@ -16,7 +16,7 @@ struct Trie{
     struct node{
         int nxt[Alpha] = {}, p = -1;
         char c;
-        vector<int> end; //if all patterns are different, can use flag instead
+        vi end; //if all patterns are different, can use flag instead
         int SuffixLink = -1;
         int cnt = 0;
 	};
@@ -63,9 +63,9 @@ struct Trie{
 		CreateSuffixLink();
 	}
 
-	vector<int> find(string& word) {
+	vi find(string& word) {
 		int pos = 0;
-		vector<int> ans(num, 0);
+    vi ans(num, 0);
 		for(auto &c : word) {
 			int val = getval(c);
 			pos = V[pos].nxt[val];

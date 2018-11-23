@@ -1,4 +1,4 @@
-CXXFLAGS = -Wall -Wextra -Wconversion -Wshadow -Wfatal-errors -std=c++14
+CXXFLAGS = -Wall -Wextra -Wconversion -Wshadow -Wfatal-errors -std=c++14 -O2
 DEBUG = -g -fsanitize=undefined,address
 
 %.o : %.cc

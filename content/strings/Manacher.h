@@ -3,12 +3,13 @@
  * License: ???
  * Description: call with String str of length n, returns: r[0..2*n-2],r[i] radius of longest palindrome with center i/2 in str
  * Time: O(n)
- * Status:
+ * Status: Tested
  * Usage:
  */
 #pragma once
 
-void manacher(int n, char *str, int *r) {
+vi manacher(string s) {
+  int n = sz(s); vi r(2*n - 1);
 	r[0] = 0;
 	int p = 0;
 	FOR(i, 1, 2*n-1) {
