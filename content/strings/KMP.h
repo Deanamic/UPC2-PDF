@@ -9,7 +9,7 @@
 
 void KMP(vi& kmp, string& s) {
   kmp.assign(sz(s) + 1, -1);
-  for (int i = st; i < s.size(); i++){
+  for (int i = 0; i < sz(s); i++){
     int j = kmp[i];
     while(j >= 0 && s[i] != s[j]) j = kmp[j];
     kmp[i+1] = j + 1;
