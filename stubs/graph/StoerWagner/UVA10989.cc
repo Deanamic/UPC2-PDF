@@ -1,11 +1,19 @@
-/**
- * Author: Dean
- * License: CC0
- * Description: Given an nxn matrix, returns the global min cut S-T, and returns S
- * Time: O(V^3)
- * Status: Tested https://codeforces.com/gym/101504/ K
- */
-#pragma once
+#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+
+const int oo = 0x3f3f3f3f;
+
+#define FOR(i, a, b) for(int i = (a); i < int(b); i++)
+#define FORD(i, a, b) for(int i = (b)-1; i >= int(a); i--)
+#define trav(i, v) for(auto &i : v)
+#define has(c, e) ((c).find(e) != (c).end())
+#define sz(c) int((c).size())
+#define all(c) c.begin(), c.end()
+#define debug(x) cerr << #x << ": " << x << endl;
 
 struct mfset {
   vi par;
@@ -52,4 +60,21 @@ pair<ll, vi> StoerWagner(vector<vi>& g, int n) {
 		}
 	}
 	return {best, cut};
+}
+
+int main() {
+  int T;
+  cin >> T;
+  FOR(I, 1, T+1) {
+    int n, m;
+    cin >> n >> m;
+    vector<vi> w(n, vector<int>(n, 0));
+    FOR(i, 0, m) {
+      int x, y, z;
+      cin >> x >> y >> z;
+      --x, --y;
+      w[x][y] = w[y][x] = z;
+    }
+    cout << "Case #" << I << ": " << StoerWagner(w, n).first << endl;
+  }
 }
