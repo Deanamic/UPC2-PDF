@@ -5,21 +5,21 @@ Stubs should hold mains to problems to check algorithm correctness
 ## Things to Add
 Check KTH pdf again for new additions, and changes in compilation
 - [ ] Centroid Decomposition
-- [ ] Better Structured MaxFlowMinCost?
-- [ ] Berlekamp-Massey
-- [ ] Linear Recurrentce
+- [x] Better Structured MaxFlowMinCost?
+- [x] Berlekamp-Massey
+- [x] Linear Recurrentce
 
 ## Things to Delete
 - [ ] Rolling Binomial
 - [ ] Binomial Mod Prime
 
 ## Things UPC PDF has
-- [ ] gomory_hu (maxflow tree)
+- [x] gomory_hu (maxflow tree)
 - [ ] edge coloring
 - [ ] LCS between all substrings
-- [ ] negative edges maxflow mincost ??
-- [ ] Changes to maxflow mincap etc
-- [ ] Fast Walsh-Hadamart transform ??
+- [x] negative edges maxflow mincost
+- [x] Changes to maxflow mincap etc
+- [x] Fast Walsh-Hadamart transform
 
 ## Status
 - combinatorial
@@ -45,7 +45,7 @@ Check KTH pdf again for new additions, and changes in compilation
   - [ ] LinkCutTree (need to understand)
   - [x] MaxWeightBipartiteMatching
   - [x] MaxflowMinCap
-  - [ ] MaxflowMinCost (refactor?)
+  - [x] MaxflowMinCost (refactor?)
   - [x] MinCostBipartite (removed)
   - [ ] MinimalArborescenses (need to understand)
   - [ ] SCC (Fix to struct)
@@ -69,16 +69,16 @@ Check KTH pdf again for new additions, and changes in compilation
   - [x] Ahocorasick
   - [ ] CYK
   - [ ] Hashing
-  - [ ] KMP
-  - [ ] Manacher
+  - [x] KMP
+  - [x] Manacher
   - [ ] MinRotation (understand)
   - [ ] Palindromic Tree (understand)
-  - [ ] Suffix Array
+  - [x] Suffix Array
   - [ ] Suffix Automaton (understand)
   - [ ] Suffix Tree (understand)
-  - [ ] Z
+  - [x] Z
 - various
-  - [ ] Understand DP optimizations
+  - [x Understand DP optimizations
   - [ ] Delete Java?
 
 Credits to students of KTH Royal institute and Simon Lindholm for the base template of the Latex and many original source codes, and to all contributors to the original UPC2 Notebook (Michael Sammler and Eric Valls)
