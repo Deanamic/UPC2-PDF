@@ -35,7 +35,7 @@ Check KTH pdf again for new additions, and changes in compilation
   - [ ] UnionFind (temporaly removed)
 - geometry
 - graph
-  - [ ] 2sat
+  - [x] 2sat
   - [x] ArticulationPointAndBridges
   - [ ] Biconnected components
   - [x] Binary Jumps
@@ -48,7 +48,7 @@ Check KTH pdf again for new additions, and changes in compilation
   - [x] MaxflowMinCost (refactor?)
   - [x] MinCostBipartite (removed)
   - [ ] MinimalArborescenses (need to understand)
-  - [ ] SCC (Fix to struct)
+  - [x] SCC (Fix to struct)
   - [ ] Stable Marriage
   - [x] Global Mincut
 - math
@@ -78,7 +78,7 @@ Check KTH pdf again for new additions, and changes in compilation
   - [ ] Suffix Tree (understand)
   - [x] Z
 - various
-  - [x Understand DP optimizations
+  - [x] Understand DP optimizations
   - [ ] Delete Java?
 
 Credits to students of KTH Royal institute and Simon Lindholm for the base template of the Latex and many original source codes, and to all contributors to the original UPC2 Notebook (Michael Sammler and Eric Valls)

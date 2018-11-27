@@ -90,25 +90,35 @@ struct TwoSat {
 
 int main() {
   ios::sync_with_stdio(0); cin.tie(0);
-  //freopen("SPO.IN", "r", stdin);
-  //freopen("SPO.OUT", "w", stdout);
   int n, m;
   cin >> n >> m;
-  TwoSat T(n);
+  TwoSat T(m);
+  vi d(n);
+  FOR(i, 0, n) cin >> d[i];
+  vector<vi> sw(n);
   FOR(i, 0, m) {
-    int x, y;
-    cin >> x >> y;
-    --x, --y;
-    int xx = x/2;
-    int yy = y/2;
-    if((x&1) == 0) xx = ~xx;
-    if((y&1) == 0) yy = ~yy;
-    //cout << xx << ' ' << yy << endl;
-    T.either(xx, yy);
+    int x;
+    cin >> x;
+    while(x--) {
+      int y;
+      cin >> y;
+      y--;
+      sw[y].push_back(i);
+    }
   }
-  if(!T.solve()) cout << "NIE" << endl;
-  else {
-    FOR(i, 0, sz(T.values)) cout << (2*i) + (1-T.values[i]) + 1 << '\n';
+  FOR(i, 0, n) {
+    if(d[i]) {
+      T.either(~sw[i][0],sw[i][1]);
+      T.either(sw[i][0],~sw[i][1]);
+    }
+    else {
+      T.either(sw[i][0],sw[i][1]);
+      T.either(~sw[i][0],~sw[i][1]);
+    }
   }
+  if(!T.solve()) cout << "NO" << endl;
+  else cout << "YES" << endl;
+  //FOR(i, 0, m) cout << T.values[i] << ' ' ;
+  //cout << endl;
 }
 
