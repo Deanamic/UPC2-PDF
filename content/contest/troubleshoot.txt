@@ -11,6 +11,7 @@ Are you clearing all datastructures between test cases?
 Can your algorithm handle the whole range of input?
 Read the full problem statement again.
 Do you handle all corner cases correctly?
+(N = 0, N = 1)
 Have you understood the problem correctly?
 Any uninitialized variables?
 Any overflows?
